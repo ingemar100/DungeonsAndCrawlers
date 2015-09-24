@@ -14,4 +14,62 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Held.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Spul.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Kerker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Laag.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ruimte.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Val.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Gevecht.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tegenstander.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Eindvijand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Held.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Spul.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Kerker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Laag.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ruimte.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Val.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Gevecht.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tegenstander.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Eindvijand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>

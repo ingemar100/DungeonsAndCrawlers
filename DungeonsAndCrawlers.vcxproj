@@ -118,6 +118,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Eindvijand.h" />
+    <ClInclude Include="Gevecht.h" />
+    <ClInclude Include="Held.h" />
+    <ClInclude Include="Kerker.h" />
+    <ClInclude Include="Laag.h" />
+    <ClInclude Include="Ruimte.h" />
+    <ClInclude Include="Spul.h" />
+    <ClInclude Include="Tegenstander.h" />
+    <ClInclude Include="Val.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Eindvijand.cpp" />
+    <ClCompile Include="Gevecht.cpp" />
+    <ClCompile Include="Held.cpp" />
+    <ClCompile Include="Kerker.cpp" />
+    <ClCompile Include="Laag.cpp" />
+    <ClCompile Include="Ruimte.cpp" />
+    <ClCompile Include="Spul.cpp" />
+    <ClCompile Include="Tegenstander.cpp" />
+    <ClCompile Include="Val.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,6 @@
 #pragma once
 #include "Held.h"
+#include "Kerker.h"
 
 class Engine
 {
@@ -9,8 +10,10 @@ public:
 	void gameLoop();
 
 private:
-	Held held;
+	Held* held;
+	Kerker* kerker;
 	void intro();
 	void death();
+	void playGame();
 };
 

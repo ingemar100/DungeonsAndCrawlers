@@ -5,11 +5,15 @@
 
 Engine::Engine()
 {
+	held = new Held();
+	kerker = new Kerker();
 }
 
 
 Engine::~Engine()
 {
+	delete held;
+	delete kerker;
 }
 
 void Engine::gameLoop() {
@@ -17,7 +21,6 @@ void Engine::gameLoop() {
 	// declare arrays 
 	// declare variables
 	
-	held = Held();
 	bool running = true;
 
 
@@ -31,10 +34,11 @@ void Engine::gameLoop() {
 
 
 		// if health <=0 print death message, break from game loop	
-		if (!held.isAlive()) {
+		if (!held->isAlive()) {
 			death();
 		}
 
+		playGame();
 
 		// print success message
 		//std::cout << "hallo\n";
@@ -49,10 +53,26 @@ void Engine::intro() {
 
 	std::string nieuweNaam;
 	std::getline(std::cin, nieuweNaam);
-	held.setNaam(nieuweNaam);
-	std::cout << "\nWelkom " + held.getNaam() + "\n";
+	held->setNaam(nieuweNaam);
+	std::cout << "\nWelkom " + held->getNaam() + "\n";
 }
 
 void Engine::death() {
+	std::cout << "Jammer, je bent dood";
+}
+
+void Engine::playGame() {
+	std::cout << "\nJe hebt deze opties: Vecht, Bekijk, Vlucht \nOptie: ";
+	std::string gekozenOptie;
+
+	std::cin >> gekozenOptie;
+
+	if (gekozenOptie == "vecht") {
+		std::cout << "\n" + held->getNaam() + " valt rat aan\n";
+	}
+	//display options
+	//receive input
+
+	//if option
 
 }

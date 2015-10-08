@@ -18,6 +18,7 @@ Held::Held()
 
 Held::~Held()
 {
+
 }
 
 bool Held::isAlive() {

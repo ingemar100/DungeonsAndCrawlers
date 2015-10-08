@@ -7,8 +7,12 @@
 class Held
 {
 public:
-	Held(std::string _naam);
+	Held();
 	~Held();
+	bool isAlive();
+	std::string getNaam();
+	void setNaam(std::string _naam);
+
 private:
 	std::string naam;
 	int level;

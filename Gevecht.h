@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-//#include "Tegenstander"
+#include "Tegenstander.h"
 
 class Gevecht
 {

@@ -9,15 +9,24 @@ class Ruimte
 public:
 	Ruimte();
 	~Ruimte();
-	enum formaat {KLEIN, MIDDEL, GROOT};
-	enum ordelijkheid {SMERIG, SCHOON};
-	enum meubels { TAFEL, BED, LEEG};
-	enum verlichting { KAARS, FAKKEL, HAARDVUUR};
+	static enum Formaat {KLEIN, MIDDEL, GROOT};
+	static enum Ordelijkheid { SMERIG, SCHOON, STOFFIG };
+	static enum Meubels { TAFEL, BED, GEEN_MEUBELS};
+	static enum Verlichting { KAARS, FAKKEL, HAARDVUUR, KROONLUCHTER};
+	static enum Opbergruimte { KIST, BOEKENKAST, GEEN_OPBERGRUIMTE };
+	static enum Versiering { SCHILDERIJ, TAPIJT, TROFEE, GEEN_VERSIERING};
+	static enum Temperatuur { WARM, IJSKOUD, KOEL};
+	std::string getBeschrijving();
+	void fillRandomly();
+	std::string getMapTile();
 private:
-	formaat grootte;
-	ordelijkheid orde;
-	meubels meubilair;
-	verlichting licht;
+	Formaat formaat;
+	Ordelijkheid ordelijkheid;
+	Meubels meubels;
+	Verlichting verlichting;
+	Opbergruimte opbergruimte;
+	Versiering versiering;
+	Temperatuur temperatuur;
 	Val val;
 	std::vector<Spul> spullen;
 };

@@ -20,7 +20,7 @@ void Engine::gameLoop() {
 
 	// declare arrays 
 	// declare variables
-	
+	setUp();
 	bool running = true;
 
 
@@ -62,7 +62,7 @@ void Engine::death() {
 }
 
 void Engine::playGame() {
-	std::cout << "\nJe hebt deze opties: Vecht, Bekijk, Vlucht \nOptie: ";
+	std::cout << "\nJe hebt deze opties: Vecht, Bekijk, Vlucht, Toon kaart \nOptie: ";
 	std::string gekozenOptie;
 
 	std::cin >> gekozenOptie;
@@ -70,9 +70,16 @@ void Engine::playGame() {
 	if (gekozenOptie == "vecht") {
 		std::cout << "\n" + held->getNaam() + " valt rat aan\n";
 	}
+	if (gekozenOptie == "toonkaart") {
+		kerker->showMap();
+	}
 	//display options
 	//receive input
 
 	//if option
 
+}
+
+void Engine::setUp() {
+	kerker->init();
 }

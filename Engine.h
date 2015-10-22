@@ -15,5 +15,6 @@ private:
 	void intro();
 	void death();
 	void playGame();
+	void setUp();
 };
 

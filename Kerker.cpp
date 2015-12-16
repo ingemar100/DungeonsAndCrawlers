@@ -2,6 +2,7 @@
 #include "RandomGenerator.h"
 #include <iostream>
 #include <random>
+#include "Held.h"
 
 
 Kerker::Kerker()
@@ -14,7 +15,7 @@ Kerker::~Kerker()
 }
 
 void Kerker::init() {
-	int laagGrootte = 10;
+	int laagGrootte = 5;
 	int ruimte;
 
 	//generaar lagen
@@ -31,19 +32,25 @@ void Kerker::init() {
 
 		//std::vector<Ruimte*> test(10);
 		//std::vector<std::vector<Ruimte*>> test2(10, test);
-		std::vector<std::vector<Ruimte*>> ruimtes = std::vector<std::vector<Ruimte*>> (10, std::vector<Ruimte*>());
+		std::vector<std::vector<Ruimte*>*> ruimtes = std::vector<std::vector<Ruimte*>*> (10, new std::vector<Ruimte*>());
 		for (int j = 0; j < laagGrootte; j++) {
 			for (int k = 0; k < laagGrootte; k++) {
 				Ruimte* r = new Ruimte();
 				r->fillRandomly();
-				ruimtes[j].push_back(r);
+
+				std::cout << "J: " + j;
+				ruimtes[j][0].push_back(r);
 			}
-			std::cout << ruimtes[j].size();
+			std::cout << ruimtes[0][j].size();
 		}
 		//setten in laag
 		lagen[i]->setRuimtes(ruimtes);
 	}
+	std::vector<std::vector<Ruimte*>*>* ruimtes = lagen[0]->getRuimtes();
+	Ruimte* r = ruimtes[0][0][0][0];
+	Held::getInstance().setRuimte(r);
 	huidigeLaag = laag1;
+
 }
 
 void Kerker::showMap() {

@@ -8,9 +8,10 @@ public:
 	Laag();
 	~Laag();
 	void init();
-	void setRuimtes(std::vector<std::vector<Ruimte*>> ruimtes);
+	std::vector<std::vector<Ruimte*>*>* getRuimtes();
+	void setRuimtes(std::vector<std::vector<Ruimte*>*> ruimtes);
 	std::string getMap();
 private:
-	std::vector<std::vector<Ruimte*>> ruimtes;
+	std::vector<std::vector<Ruimte*>*> ruimtes;
 };
 

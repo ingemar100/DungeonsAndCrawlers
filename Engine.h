@@ -10,7 +10,6 @@ public:
 	void gameLoop();
 
 private:
-	Held* held;
 	Kerker* kerker;
 	void intro();
 	void death();

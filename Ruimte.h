@@ -3,6 +3,7 @@
 #include <vector>
 #include "Spul.h"
 #include "Val.h"
+#include <map>
 
 class Ruimte
 {
@@ -29,5 +30,12 @@ private:
 	Temperatuur temperatuur;
 	Val val;
 	std::vector<Spul> spullen;
+	std::string getStringFromEnum(Formaat waarde);
+	std::string getStringFromEnum(Ordelijkheid waarde);
+	std::string getStringFromEnum(Meubels waarde);
+	std::string getStringFromEnum(Verlichting waarde);
+	std::string getStringFromEnum(Opbergruimte waarde);
+	std::string getStringFromEnum(Versiering waarde);
+	std::string getStringFromEnum(Temperatuur waarde);
 };
 

@@ -5,14 +5,12 @@
 
 Engine::Engine()
 {
-	held = new Held();
 	kerker = new Kerker();
 }
 
 
 Engine::~Engine()
 {
-	delete held;
 	delete kerker;
 }
 
@@ -34,7 +32,7 @@ void Engine::gameLoop() {
 
 
 		// if health <=0 print death message, break from game loop	
-		if (!held->isAlive()) {
+		if (!Held::getInstance().isAlive()) {
 			death();
 		}
 
@@ -53,8 +51,8 @@ void Engine::intro() {
 
 	std::string nieuweNaam;
 	std::getline(std::cin, nieuweNaam);
-	held->setNaam(nieuweNaam);
-	std::cout << "\nWelkom " + held->getNaam() + "\n";
+	Held::getInstance().setNaam(nieuweNaam);
+	std::cout << "\nWelkom " + Held::getInstance().getNaam() + "\n";
 }
 
 void Engine::death() {
@@ -62,13 +60,14 @@ void Engine::death() {
 }
 
 void Engine::playGame() {
+	std::cout << Held::getInstance().getRuimte()->getBeschrijving() + "\n";
 	std::cout << "\nJe hebt deze opties: Vecht, Bekijk, Vlucht, Toon kaart \nOptie: ";
 	std::string gekozenOptie;
 
 	std::cin >> gekozenOptie;
 
 	if (gekozenOptie == "vecht") {
-		std::cout << "\n" + held->getNaam() + " valt rat aan\n";
+		std::cout << "\n" + Held::getInstance().getNaam() + " valt rat aan\n";
 	}
 	if (gekozenOptie == "toonkaart") {
 		kerker->showMap();

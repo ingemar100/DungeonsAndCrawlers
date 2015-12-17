@@ -11,6 +11,9 @@ public:
 	std::vector<std::vector<Ruimte*>*>* getRuimtes();
 	void setRuimtes(std::vector<std::vector<Ruimte*>*> ruimtes);
 	std::string getMap();
+	Ruimte* getStartRoom() {
+		return ruimtes[0][0][0];
+	}
 private:
 	std::vector<std::vector<Ruimte*>*> ruimtes;
 };

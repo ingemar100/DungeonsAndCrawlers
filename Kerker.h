@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "Laag.h"
+#include "RoomGenerator.h"
 
 class Kerker
 {

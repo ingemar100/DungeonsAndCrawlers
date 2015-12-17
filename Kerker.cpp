@@ -12,11 +12,17 @@ Kerker::Kerker()
 
 Kerker::~Kerker()
 {
+	for (Laag* l : lagen) {
+		delete l;
+		l = nullptr;
+	}
 }
 
 void Kerker::init() {
 	int laagGrootte = 5;
 	int ruimte;
+
+	RoomGenerator* roomGenerator = new RoomGenerator();
 
 	//generaar lagen
 	Laag* laag1 = new Laag();
@@ -35,22 +41,23 @@ void Kerker::init() {
 		std::vector<std::vector<Ruimte*>*> ruimtes = std::vector<std::vector<Ruimte*>*> (10, new std::vector<Ruimte*>());
 		for (int j = 0; j < laagGrootte; j++) {
 			for (int k = 0; k < laagGrootte; k++) {
-				Ruimte* r = new Ruimte();
-				r->fillRandomly();
+				Ruimte* r = roomGenerator->createRoom();
 
-				std::cout << "J: " + j;
+				//std::cout << "J: " + j;
 				ruimtes[j][0].push_back(r);
 			}
-			std::cout << ruimtes[0][j].size();
+			//std::cout << ruimtes[0][j].size();
 		}
 		//setten in laag
 		lagen[i]->setRuimtes(ruimtes);
 	}
-	std::vector<std::vector<Ruimte*>*>* ruimtes = lagen[0]->getRuimtes();
-	Ruimte* r = ruimtes[0][0][0][0];
+
+	Ruimte* r = lagen[0]->getStartRoom();
 	Held::getInstance().setRuimte(r);
+
 	huidigeLaag = laag1;
 
+	delete roomGenerator;
 }
 
 void Kerker::showMap() {

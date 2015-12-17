@@ -63,6 +63,9 @@
     <ClInclude Include="RandomGenerator.h">
       <Filter>Header Files\Util</Filter>
     </ClInclude>
+    <ClInclude Include="RoomGenerator.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Held.cpp">
@@ -102,6 +105,9 @@
       <Filter>Source Files\Model</Filter>
     </ClCompile>
     <ClCompile Include="RandomGenerator.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="RoomGenerator.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
   </ItemGroup>

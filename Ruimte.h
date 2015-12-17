@@ -10,32 +10,60 @@ class Ruimte
 public:
 	Ruimte();
 	~Ruimte();
-	static enum Formaat {KLEIN, MIDDEL, GROOT};
-	static enum Ordelijkheid { SMERIG, SCHOON, STOFFIG };
-	static enum Meubels { TAFEL, BED, GEEN_MEUBELS};
-	static enum Verlichting { KAARS, FAKKEL, HAARDVUUR, KROONLUCHTER};
-	static enum Opbergruimte { KIST, BOEKENKAST, GEEN_OPBERGRUIMTE };
-	static enum Versiering { SCHILDERIJ, TAPIJT, TROFEE, GEEN_VERSIERING};
-	static enum Temperatuur { WARM, IJSKOUD, KOEL};
+
 	std::string getBeschrijving();
-	void fillRandomly();
 	std::string getMapTile();
+	void setFormaat(std::string _formaat) {
+		formaat = _formaat;
+	};
+	std::string getFormaat() {
+		return formaat;
+	};
+	void setOrdelijkheid(std::string _ordelijkheid) {
+		ordelijkheid = _ordelijkheid;
+	};
+	std::string getOrdelijkheid() {
+		return ordelijkheid;
+	};
+	void setMeubels(std::string _meubels) {
+		meubels = _meubels;
+	};
+	std::string getMeubels() {
+		return meubels;
+	};
+	void setVerlichting(std::string _verlichting) {
+		verlichting = _verlichting;
+	};
+	std::string getVerlichting() {
+		return verlichting;
+	};
+	void setOpbergruimte(std::string _opbergruimte) {
+		opbergruimte = _opbergruimte;
+	};
+	std::string getOpbergruimte() {
+		return opbergruimte;
+	};
+	void setVersiering(std::string _versiering) {
+		versiering = _versiering;
+	};
+	std::string getVersiering() {
+		return versiering;
+	};
+	void setTemperatuur(std::string _temperatuur) {
+		temperatuur = _temperatuur;
+	};
+	std::string getTemperatuur() {
+		return temperatuur;
+	};
 private:
-	Formaat formaat;
-	Ordelijkheid ordelijkheid;
-	Meubels meubels;
-	Verlichting verlichting;
-	Opbergruimte opbergruimte;
-	Versiering versiering;
-	Temperatuur temperatuur;
+	std::string formaat = "";
+	std::string ordelijkheid = "";
+	std::string meubels = "";
+	std::string verlichting = "";
+	std::string opbergruimte = "";
+	std::string versiering = "";
+	std::string temperatuur = "";
 	Val val;
 	std::vector<Spul> spullen;
-	std::string getStringFromEnum(Formaat waarde);
-	std::string getStringFromEnum(Ordelijkheid waarde);
-	std::string getStringFromEnum(Meubels waarde);
-	std::string getStringFromEnum(Verlichting waarde);
-	std::string getStringFromEnum(Opbergruimte waarde);
-	std::string getStringFromEnum(Versiering waarde);
-	std::string getStringFromEnum(Temperatuur waarde);
 };
 

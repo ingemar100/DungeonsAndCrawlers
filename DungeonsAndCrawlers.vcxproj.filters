@@ -66,6 +66,9 @@
     <ClInclude Include="RoomGenerator.h">
       <Filter>Header Files\Util</Filter>
     </ClInclude>
+    <ClInclude Include="Dialogue.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Held.cpp">

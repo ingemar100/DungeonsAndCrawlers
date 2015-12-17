@@ -36,23 +36,25 @@ void Kerker::init() {
 	for (int i = 0; i < lagen.size(); i++) {
 		lagen[i]->init();
 
-		//std::vector<Ruimte*> test(10);
-		//std::vector<std::vector<Ruimte*>> test2(10, test);
-		std::vector<std::vector<Ruimte*>*> ruimtes = std::vector<std::vector<Ruimte*>*> (10, new std::vector<Ruimte*>());
+		std::vector<std::vector<Ruimte*>*> ruimtes = std::vector<std::vector<Ruimte*>*>();
 		for (int j = 0; j < laagGrootte; j++) {
+			std::vector<Ruimte*>* binnenVector = new std::vector<Ruimte*>();
+
 			for (int k = 0; k < laagGrootte; k++) {
 				Ruimte* r = roomGenerator->createRoom();
 
 				//std::cout << "J: " + j;
-				ruimtes[j][0].push_back(r);
+				//ruimtes[j][k].push_back(r);
+				binnenVector->push_back(r);
 			}
-			//std::cout << ruimtes[0][j].size();
+			ruimtes.push_back(binnenVector);
 		}
 		//setten in laag
 		lagen[i]->setRuimtes(ruimtes);
 	}
 
-	Ruimte* r = lagen[0]->getStartRoom();
+	Laag* laag = lagen[0];
+	Ruimte* r = laag->getStartRoom();
 	Held::getInstance().setRuimte(r);
 
 	huidigeLaag = laag1;

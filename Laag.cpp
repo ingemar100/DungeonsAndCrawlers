@@ -28,7 +28,8 @@ std::string Laag::getMap() {
 	std::string map = "";
 	for (int i = 0; i < ruimtes.size(); i++) {
 		for (int j = 0; j < ruimtes[i][0].size(); j++) {
-			map += ruimtes[i][j][0]->getMapTile() + "";
+			Ruimte* r = ruimtes[i][0][j];
+			map += r->getMapTile() + "";
 		}
 		map += "\n";
 		map += "\n";

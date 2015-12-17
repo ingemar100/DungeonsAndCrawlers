@@ -1,7 +1,7 @@
 #include "Engine.h"
 #include "Held.h"
 #include <iostream>
-
+#include "Dialogue.h"
 
 Engine::Engine()
 {
@@ -47,29 +47,35 @@ void Engine::gameLoop() {
 }
 
 void Engine::intro() {
-	std::cout << "Wat is je naam?\nNaam: ";
+	std::vector<std::string> names = {"Rood", "Blauw", "Adventurier", "Karel de Grote", "Gengis Khan", "Cristopher Columbus", "Harrison Ford", "Drakenslachter", "Jeroen", "Bart Gelens"};
+	Dialogue dialoog("Wat is je naam?", { names });
+	int keuze = dialoog.activate();
 
-	std::string nieuweNaam;
-	std::getline(std::cin, nieuweNaam);
+	std::string nieuweNaam = names[keuze - 1];
 	Held::getInstance().setNaam(nieuweNaam);
 	std::cout << "\nWelkom " + Held::getInstance().getNaam() + "\n";
 }
 
 void Engine::death() {
 	std::cout << "Jammer, je bent dood";
+	//reset
 }
 
 void Engine::playGame() {
-	std::cout << Held::getInstance().getRuimte()->getBeschrijving() + "\n";
-	std::cout << "\nJe hebt deze opties: Vecht, Bekijk, Vlucht, Toon kaart \nOptie: ";
-	std::string gekozenOptie;
+	Dialogue dialoog(Held::getInstance().getRuimte()->getBeschrijving(), { "Vecht", "Bekijk", "Vlucht", "Toon kaart" });
+	
+	int gekozenOptie = dialoog.activate();
 
-	std::cin >> gekozenOptie;
-
-	if (gekozenOptie == "vecht") {
+	if (gekozenOptie == 1) {
 		std::cout << "\n" + Held::getInstance().getNaam() + " valt rat aan\n";
 	}
-	if (gekozenOptie == "toonkaart") {
+	else if (gekozenOptie == 2) {
+		std::cout << "\n" + Held::getInstance().getNaam() + " valt rat aan\n";
+	}
+	else if (gekozenOptie == 3) {
+		std::cout << "\n" + Held::getInstance().getNaam() + " valt rat aan\n";
+	}
+	else if (gekozenOptie == 4) {
 		kerker->showMap();
 	}
 	//display options

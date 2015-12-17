@@ -44,6 +44,14 @@ std::string Ruimte::getBeschrijving(){
 	for (auto ent : adjacentRooms) {
 		beschrijving.append(ent.first + ", ");
 	}
+	beschrijving.append("\n");
+
+	if (trapOmhoog) {
+		beschrijving.append("De kamer heeft een trap omhoog.\n");
+	}
+	if (trapOmlaag) {
+		beschrijving.append("De kamer heeft een trap omlaag.\n");
+	}
 	return beschrijving;
 }
 
@@ -52,6 +60,13 @@ std::string Ruimte::getMapTile() {
 	if (!visited) {
 		roomIcon = ".";
 	}
+	else if (trapOmhoog) {
+		roomIcon = "H";
+	}
+	else if (trapOmlaag) {
+		roomIcon = "L";
+	}
+	//check if contains eindvijand
 	else {
 		roomIcon = "N";
 	}

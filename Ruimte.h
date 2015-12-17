@@ -71,6 +71,8 @@ private:
 	std::vector<Spul> spullen;
 	std::map<std::string, Ruimte*> adjacentRooms;
 	bool visited = false;
+	bool trapOmhoog = false;
+	bool trapOmlaag = false;
 
 	friend class Kerker;
 	friend class Held;

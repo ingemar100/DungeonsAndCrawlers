@@ -10,10 +10,13 @@ public:
 	void gameLoop();
 
 private:
+	bool playing = true;
 	Kerker* kerker;
 	void intro();
 	void death();
 	void playGame();
 	void setUp();
+	void endGame();
+	void vlucht();
 };
 

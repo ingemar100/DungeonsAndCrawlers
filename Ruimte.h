@@ -55,6 +55,10 @@ public:
 	std::string getTemperatuur() {
 		return temperatuur;
 	};
+
+	std::map<std::string, Ruimte*>& getAdjacentRooms() {
+		return adjacentRooms;
+	}
 private:
 	std::string formaat = "";
 	std::string ordelijkheid = "";
@@ -65,5 +69,10 @@ private:
 	std::string temperatuur = "";
 	Val val;
 	std::vector<Spul> spullen;
+	std::map<std::string, Ruimte*> adjacentRooms;
+	bool visited = false;
+
+	friend class Kerker;
+	friend class Held;
 };
 

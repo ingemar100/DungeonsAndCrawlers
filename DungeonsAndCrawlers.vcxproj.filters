@@ -25,6 +25,12 @@
     <Filter Include="Source Files\Util">
       <UniqueIdentifier>{d39c2eba-3c32-4320-9893-b1453a8deca6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Control">
+      <UniqueIdentifier>{8e8c9471-e061-40e4-9fd7-7cd781d0efbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Control">
+      <UniqueIdentifier>{d3f7fc61-57b3-44c6-8603-93f363070263}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Eindvijand.h">
@@ -54,9 +60,6 @@
     <ClInclude Include="Val.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
-    <ClInclude Include="Engine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Actie.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
@@ -68,6 +71,9 @@
     </ClInclude>
     <ClInclude Include="Dialogue.h">
       <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Header Files\Control</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -98,12 +104,6 @@
     <ClCompile Include="Val.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
-    <ClCompile Include="Engine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Actie.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
@@ -112,6 +112,12 @@
     </ClCompile>
     <ClCompile Include="RoomGenerator.cpp">
       <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source Files\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files\Control</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

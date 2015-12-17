@@ -39,10 +39,17 @@ void Held::setNaam(std::string _naam) {
 	naam = _naam;
 }
 
-void Held::setRuimte(Ruimte* _ruimte) {
+void Held::moveTo(Ruimte* _ruimte) {
+	_ruimte->visited = true;
 	ruimte = _ruimte;
 }
 
 Ruimte* Held::getRuimte() {
 	return ruimte;
+}
+
+void Held::deleteInstance()
+{
+	delete instance;
+	instance = nullptr;
 }

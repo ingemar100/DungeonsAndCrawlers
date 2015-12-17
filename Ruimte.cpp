@@ -48,8 +48,12 @@ std::string Ruimte::getBeschrijving(){
 }
 
 std::string Ruimte::getMapTile() {
+	std::string roomIcon;
 	if (!visited) {
-		return ".--";
+		roomIcon = ".";
 	}
-	return "N--";
+	else {
+		roomIcon = "N";
+	}
+	return roomIcon;
 }

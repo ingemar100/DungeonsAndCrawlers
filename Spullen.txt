@@ -18,12 +18,13 @@ Appel,3
 Brood,10
 Water,10
 Wasabi,10
-Energie drankje,50
 Habanero,30
 Healt Potion,20
-Mana_Poition,20
+Mana Poition,20
 Regeneration Potion,100
 Strength Potion,50
+Opmerkzaamheid Poition,50
+Verdedigings Potion,50
 __________
 Bontjas,2
 Leather armor,10

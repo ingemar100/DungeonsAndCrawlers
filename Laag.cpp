@@ -15,6 +15,7 @@ Laag::~Laag()
 		}
 		delete vec;
 	}
+	ruimtes.clear();
 }
 
 void Laag::init() {
@@ -22,7 +23,7 @@ void Laag::init() {
 
 std::vector<std::vector<Ruimte*>*>* Laag::getRuimtes()
 {
-	return &std::vector<std::vector<Ruimte*>*>();
+	return &ruimtes;
 }
 
 void Laag::setRuimtes(std::vector<std::vector<Ruimte*>*> _ruimtes)

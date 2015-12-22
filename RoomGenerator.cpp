@@ -24,6 +24,8 @@ RoomGenerator::RoomGenerator()
 
 RoomGenerator::~RoomGenerator()
 {
+	delete gog;
+	gog = nullptr;
 }
 
 

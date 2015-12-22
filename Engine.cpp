@@ -21,7 +21,6 @@ void Engine::gameLoop() {
 	// print introduction and instructions to console
 	intro();
 	setUp();
-	bool running = true;
 
 	// set location to first room
 

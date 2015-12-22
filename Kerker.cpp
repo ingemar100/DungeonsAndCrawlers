@@ -16,6 +16,7 @@ Kerker::~Kerker()
 		delete l;
 		l = nullptr;
 	}
+	lagen.clear();
 }
 
 void Kerker::init() {

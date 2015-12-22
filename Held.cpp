@@ -1,6 +1,7 @@
 #include "Held.h"
 #include <string>
 #include <vector>
+#include <iostream>
 
 
 Held::Held()
@@ -12,7 +13,6 @@ Held::Held()
 	aanval = 1;
 	verdediging = 1;
 	opmerkzaamheid = 1;
-	spullen = {};
 }
 
 bool Held::instanceFlag = false;
@@ -42,6 +42,7 @@ void Held::setNaam(std::string _naam) {
 void Held::moveTo(Ruimte* _ruimte) {
 	_ruimte->visited = true;
 	ruimte = _ruimte;
+	std::cout << ruimte->getBeschrijving();
 }
 
 Ruimte* Held::getRuimte() {

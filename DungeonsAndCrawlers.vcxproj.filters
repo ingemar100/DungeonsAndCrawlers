@@ -25,12 +25,6 @@
     <Filter Include="Source Files\Util">
       <UniqueIdentifier>{d39c2eba-3c32-4320-9893-b1453a8deca6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Control">
-      <UniqueIdentifier>{8e8c9471-e061-40e4-9fd7-7cd781d0efbc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Control">
-      <UniqueIdentifier>{d3f7fc61-57b3-44c6-8603-93f363070263}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Eindvijand.h">
@@ -51,14 +45,14 @@
     <ClInclude Include="Ruimte.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
-    <ClInclude Include="Spul.h">
-      <Filter>Header Files\Model</Filter>
-    </ClInclude>
     <ClInclude Include="Tegenstander.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
     <ClInclude Include="Val.h">
       <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Actie.h">
       <Filter>Header Files\Model</Filter>
@@ -72,16 +66,11 @@
     <ClInclude Include="Dialogue.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
-<<<<<<< HEAD
     <ClInclude Include="GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameObjectGenerator.h">
       <Filter>Header Files</Filter>
-=======
-    <ClInclude Include="Engine.h">
-      <Filter>Header Files\Control</Filter>
->>>>>>> 464b26908e643140aa69528167d23eaa2cbdd5a4
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -103,14 +92,17 @@
     <ClCompile Include="Ruimte.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
-    <ClCompile Include="Spul.cpp">
-      <Filter>Source Files\Model</Filter>
-    </ClCompile>
     <ClCompile Include="Tegenstander.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
     <ClCompile Include="Val.cpp">
       <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Actie.cpp">
       <Filter>Source Files\Model</Filter>
@@ -121,19 +113,11 @@
     <ClCompile Include="RoomGenerator.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
-<<<<<<< HEAD
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameObjectGenerator.cpp">
       <Filter>Source Files</Filter>
-=======
-    <ClCompile Include="Engine.cpp">
-      <Filter>Source Files\Control</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files\Control</Filter>
->>>>>>> 464b26908e643140aa69528167d23eaa2cbdd5a4
     </ClCompile>
   </ItemGroup>
 </Project>

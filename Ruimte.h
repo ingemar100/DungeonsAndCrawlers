@@ -78,7 +78,6 @@ private:
 	std::string versiering = "";
 	std::string temperatuur = "";
 	Val val;
-	std::vector<Spul> spullen;
 	std::map<std::string, Ruimte*> adjacentRooms;
 	bool visited = false;
 	bool trapOmhoog = false;

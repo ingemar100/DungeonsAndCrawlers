@@ -131,7 +131,6 @@
     <ClInclude Include="RandomGenerator.h" />
     <ClInclude Include="RoomGenerator.h" />
     <ClInclude Include="Ruimte.h" />
-    <ClInclude Include="Spul.h" />
     <ClInclude Include="Tegenstander.h" />
     <ClInclude Include="Val.h" />
   </ItemGroup>
@@ -149,7 +148,6 @@
     <ClCompile Include="RandomGenerator.cpp" />
     <ClCompile Include="RoomGenerator.cpp" />
     <ClCompile Include="Ruimte.cpp" />
-    <ClCompile Include="Spul.cpp" />
     <ClCompile Include="Tegenstander.cpp" />
     <ClCompile Include="Val.cpp" />
   </ItemGroup>

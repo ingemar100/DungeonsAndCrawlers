@@ -27,7 +27,7 @@ GameObjectGenerator::GameObjectGenerator()
 
 			std::vector<std::string>tokens;
 
-			while (ss >> buffer) {
+			while (std::getline(ss, buffer, ',')) {
 				tokens.push_back(buffer);
 			}
 			if (tokens.size() > 1) {
@@ -40,7 +40,7 @@ GameObjectGenerator::GameObjectGenerator()
 
 			std::vector<std::string>tokens;
 
-			while (ss >> buffer) {
+			while (std::getline(ss, buffer, ',')) {
 				tokens.push_back(buffer);
 			}
 			if (tokens.size() > 1) {
@@ -53,7 +53,7 @@ GameObjectGenerator::GameObjectGenerator()
 
 			std::vector<std::string>tokens;
 
-			while (ss >> buffer) {
+			while (std::getline(ss, buffer, ',')) {
 				tokens.push_back(buffer);
 			}
 			if (tokens.size() > 1) {
@@ -108,6 +108,9 @@ GameObject* GameObjectGenerator::createGameObject()
 			}
 			counter++;
 		}
+	}
+	else {
+		go = nullptr;
 	}
 	// else if == 4 dan wordt er geen GameObject toegevoegd aan de Kamer en is de Kamer leeg. 
 

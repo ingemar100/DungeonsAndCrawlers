@@ -95,7 +95,7 @@ GameObject * Ruimte::search()
 			std::cout << "Er ligt een " << _gameObject->naam() << " op de grond. Dit Item wordt Toegevoegd aan je Inventory. ";
 		}
 		else if (_gameObject->getType() == GameObject::ETEN) {
-			std::cout << "Er ligt " << _gameObject->naam() << " Dit Item wordt Toegevoegd aan je Inventory. ";
+			std::cout << "Er ligt een " << _gameObject->naam() << " Dit Item wordt Toegevoegd aan je Inventory. ";
 		}
 		else if (_gameObject->getType() == GameObject::KLEDING) {
 			std::cout << "Er ligt een " << _gameObject->naam() << " op de grond. Dit Item wordt Toegevoegd aan je Inventory. ";

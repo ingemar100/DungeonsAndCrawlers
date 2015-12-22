@@ -29,7 +29,6 @@ private:
 	int aanval;
 	int verdediging;
 	int opmerkzaamheid;
-	std::vector<Spul> spullen;
 	Ruimte* ruimte;
 
 	//Held instance;

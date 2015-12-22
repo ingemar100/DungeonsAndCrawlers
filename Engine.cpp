@@ -18,36 +18,30 @@ void Engine::gameLoop() {
 
 	// declare arrays 
 	// declare variables
+	// print introduction and instructions to console
+	intro();
 	setUp();
 	bool running = true;
 
-
-	// print introduction and instructions to console
-	intro();
 	// set location to first room
 
 	// begin game loop
 	while (playing) {
 
-
-
 		// if health <=0 print death message, break from game loop	
 		if (!Held::getInstance().isAlive()) {
 			death();
 		}
-
 		playGame();
-
 		// print success message
 		//std::cout << "hallo\n";
-
 	}
 	// end
 
 }
 
 void Engine::intro() {
-	std::vector<std::string> names = {"Rood", "Blauw", "Adventurier", "Karel de Grote", "Gengis Khan", "Cristopher Columbus", "Harrison Ford", "Drakenslachter", "Jeroen", "Bart Gelens"};
+	std::vector<std::string> names = {"Harrison Ford", "Kunta Kinte", "Adventurier", "Karel de Grote", "Gengis Khan", "Cristopher Columbus", "Harrison Ford", "Drakenslachter", "Jeroen", "Bart Gelens"};
 	Dialogue dialoog("Wat is je naam?", { names });
 	int keuze = dialoog.activate();
 
@@ -58,7 +52,7 @@ void Engine::intro() {
 	else {
 		std::string nieuweNaam = names[keuze - 1];
 		Held::getInstance().setNaam(nieuweNaam);
-		std::cout << "\nWelkom " + Held::getInstance().getNaam() + "\n";
+		std::cout << "\nWelkom " + Held::getInstance().getNaam() + "\n\n";
 	}
 }
 
@@ -68,7 +62,7 @@ void Engine::death() {
 }
 
 void Engine::playGame() {
-	Dialogue dialoog(Held::getInstance().getRuimte()->getBeschrijving(), { "Vecht", "Vlucht", "Zoek", "Rust uit", "Bekijk spullen", "Toon kaart" });
+	Dialogue dialoog( "Kies een optie: ", { "Vecht", "Vlucht", "Zoek", "Rust uit", "Bekijk spullen", "Toon kaart" });
 	
 	int gekozenOptie = dialoog.activate();
 

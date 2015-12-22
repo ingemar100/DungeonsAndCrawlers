@@ -1,14 +1,32 @@
-Flip_Knife 5
-Longsword 7
-Shaddow_Daggers 4
-Gut_Knife 8
-Karambit 10
+Dolk,10
+Flip Knife,5
+Shaddow Daggers,5
+Gut Knife,8
+Karambit,20
+Huntsman Knife,10
+Pijl en Boog,15
+Katapult,11
+Nunchaku,9
+Samurai Zwaard,30
+Buskruid,16
+Vuurwerk,10
+Pepperspray,50
 __________
-Healt_Potion 10
-Mana_Poition 10
-Junk_Food 5
-Bami_Pang_Pang_Pang 8
+Kip,5
+Eend, 6
+Appel,3
+Brood,10
+Water,10
+Wasabi,10
+Energie drankje,50
+Habanero,30
+Healt Potion,20
+Mana_Poition,20
+Regeneration Potion,100
+Strength Potion,50
 __________
-Nike_Airmax 5
-Adidas_Muts 5
-Umbro_Hoody 5
+Bontjas,2
+Leather armor,10
+MalienKolder,30
+Mage Robe,50
+Hakama,70

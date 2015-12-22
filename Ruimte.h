@@ -5,8 +5,22 @@
 #include "Val.h"
 #include <map>
 
+class GameObject;
 class Ruimte
 {
+private:
+	std::string formaat = "";
+	std::string ordelijkheid = "";
+	std::string meubels = "";
+	std::string verlichting = "";
+	std::string opbergruimte = "";
+	std::string versiering = "";
+	std::string temperatuur = "";
+	Val val;
+	std::vector<Spul> spullen;
+
+	GameObject* _gameObject = nullptr;
+
 public:
 	Ruimte();
 	~Ruimte();
@@ -55,15 +69,14 @@ public:
 	std::string getTemperatuur() {
 		return temperatuur;
 	};
-private:
-	std::string formaat = "";
-	std::string ordelijkheid = "";
-	std::string meubels = "";
-	std::string verlichting = "";
-	std::string opbergruimte = "";
-	std::string versiering = "";
-	std::string temperatuur = "";
-	Val val;
-	std::vector<Spul> spullen;
+
+	void addGameObject(GameObject* gameObject);
+	void removeObject();
+	GameObject* search();
+	GameObject* getGameObject() {
+		return _gameObject;
+	}
+
+	bool hasGameObject() { return _gameObject != nullptr; }
 };
 

@@ -1,0 +1,14 @@
+Flip_Knife 5
+Longsword 7
+Shaddow_Daggers 4
+Gut_Knife 8
+Karambit 10
+__________
+Healt_Potion 10
+Mana_Poition 10
+Junk_Food 5
+Bami_Pang_Pang_Pang 8
+__________
+Nike_Airmax 5
+Adidas_Muts 5
+Umbro_Hoody 5

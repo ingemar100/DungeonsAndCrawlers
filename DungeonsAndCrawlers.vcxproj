@@ -122,6 +122,8 @@
     <ClInclude Include="Dialogue.h" />
     <ClInclude Include="Eindvijand.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameObjectGenerator.h" />
     <ClInclude Include="Gevecht.h" />
     <ClInclude Include="Held.h" />
     <ClInclude Include="Kerker.h" />
@@ -137,6 +139,8 @@
     <ClCompile Include="Actie.cpp" />
     <ClCompile Include="Eindvijand.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameObjectGenerator.cpp" />
     <ClCompile Include="Gevecht.cpp" />
     <ClCompile Include="Held.cpp" />
     <ClCompile Include="Kerker.cpp" />

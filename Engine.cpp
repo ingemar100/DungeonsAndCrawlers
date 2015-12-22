@@ -70,7 +70,10 @@ void Engine::playGame() {
 		std::cout << "\n" + Held::getInstance().getNaam() + " valt rat aan\n";
 	}
 	else if (gekozenOptie == 2) {
-		std::cout << "\n" + Held::getInstance().getNaam() + " valt rat aan\n";
+		GameObject* go = (Held::getInstance().getRuimte()->search());
+		if (go != nullptr) {
+			Held::getInstance().getRuimte()->removeObject();
+		}
 	}
 	else if (gekozenOptie == 3) {
 		std::cout << "\n" + Held::getInstance().getNaam() + " valt rat aan\n";

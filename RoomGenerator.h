@@ -8,6 +8,8 @@
 #include <iterator>
 #include <iostream>
 
+#include "GameObjectGenerator.h"
+
 class Ruimte;
 
 class RoomGenerator
@@ -15,6 +17,7 @@ class RoomGenerator
 private:
 	std::vector<std::string> keys = { "formaat", "ordelijkheid", "meubels", "verlichting", "opbergruimte", "versiering", "temperatuur" };
 	std::map<std::string, std::vector<std::string>> properties;
+	GameObjectGenerator* gog = nullptr;
 public:
 	RoomGenerator();
 	~RoomGenerator();

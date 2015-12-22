@@ -1,5 +1,6 @@
 #include "Ruimte.h"
 #include "RandomGenerator.h"
+#include "GameObject.h"
 #include <iostream>
 #include <exception>
 
@@ -10,6 +11,10 @@ Ruimte::Ruimte()
 
 Ruimte::~Ruimte()
 {
+	if (_gameObject != nullptr) {
+		delete _gameObject;
+		_gameObject = nullptr;
+	}
 }
 
 std::string Ruimte::getBeschrijving(){
@@ -44,4 +49,36 @@ std::string Ruimte::getBeschrijving(){
 
 std::string Ruimte::getMapTile() {
 	return "N--";
+}
+
+void Ruimte::addGameObject(GameObject * gameObject)
+{
+	_gameObject = gameObject;
+}
+
+void Ruimte::removeObject()
+{
+	delete _gameObject;
+	_gameObject = nullptr;
+}
+
+GameObject * Ruimte::search()
+{
+	if (_gameObject != nullptr) {
+		if (_gameObject->getType() == GameObject::WAPEN) {
+			std::cout << "Er ligt een " << _gameObject->naam() << " op de grond. Dit Item wordt Toegevoegd aan je Inventory. ";
+		}
+		else if (_gameObject->getType() == GameObject::ETEN) {
+			std::cout << "Er ligt " << _gameObject->naam() << " Dit Item wordt Toegevoegd aan je Inventory. ";
+		}
+		else if (_gameObject->getType() == GameObject::KLEDING) {
+			std::cout << "Er ligt een " << _gameObject->naam() << " op de grond. Dit Item wordt Toegevoegd aan je Inventory. ";
+		}
+	}
+	else{
+		std::cout << "Je hebt niks kunnen vinden. ";
+	}
+	std::cout << "\n\n";
+
+	return _gameObject;
 }

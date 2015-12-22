@@ -40,7 +40,7 @@ void Engine::gameLoop() {
 }
 
 void Engine::intro() {
-	std::vector<std::string> names = {"Harrison Ford", "Kunta Kinte", "Adventurier", "Karel de Grote", "Gengis Khan", "Cristopher Columbus", "Harrison Ford", "Drakenslachter", "Jeroen", "Bart Gelens"};
+	std::vector<std::string> names = {"Harrison Ford", "Kunta Kinte", "Avonturier", "Karel de Grote", "Gengis Khan", "Cristopher Columbus", "Julius Caesar", "Drakenslachter", "Jeroen", "Bart Gelens"};
 	Dialogue dialoog("Wat is je naam?", { names });
 	int keuze = dialoog.activate();
 
@@ -62,7 +62,11 @@ void Engine::death() {
 
 void Engine::playGame() {
 	Dialogue dialoog( "Kies een optie: ", { "Vecht", "Vlucht", "Zoek", "Rust uit", "Bekijk spullen", "Toon kaart" });
-	
+
+	if (Held::getInstance().getRuimte()->heeftTrapOmlaag() || Held::getInstance().getRuimte()->heeftTrapOmhoog()) {
+		dialoog.addChoice("Neem de trap");
+	}
+
 	int gekozenOptie = dialoog.activate();
 
 	if (gekozenOptie == 1) {
@@ -83,6 +87,9 @@ void Engine::playGame() {
 	}
 	else if (gekozenOptie == 6) {
 		kerker->showMap();
+	}
+	else if (gekozenOptie == 7) {
+		std::cout << "Niet geimplementeerd\n";
 	}
 	else if (gekozenOptie == 0) {
 		endGame();

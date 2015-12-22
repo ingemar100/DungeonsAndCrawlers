@@ -80,6 +80,30 @@ void Kerker::init() {
 				r->adjacentRooms = adjacencies;
 			}
 		}
+
+		int randX = rand() % laagGrootte;
+		int randY = rand() % laagGrootte;
+		Ruimte* begin = ruimtes[randX][0][randY];
+		if (i == 0) {
+			//startlocatie
+			//lagen[i]->
+			lagen[i]->setStartRoom(begin);
+		}
+		else {
+			//trap omhoog
+			begin->trapOmhoog = true;
+
+			//trap omlaag
+			lagen[i - 1]->getRuimtes()[0][randX][0][randY]->trapOmlaag = true;
+		}
+
+		randX = rand() % laagGrootte;
+		randY = rand() % laagGrootte;
+		Ruimte* eind = ruimtes[randX][0][randY];
+		if (i == lagen.size()) {
+			//eindvijand
+			eind->eindbaas = true;
+		}
 	}
 
 	Laag* laag = lagen[0];
@@ -97,6 +121,7 @@ void Kerker::showMap() {
 	std::cout << "Legenda: \n";
 	std::cout << "|- : Gangen \n";
 	std::cout << "S  : Startlocatie \n";
+	std::cout << "X  : Huidige locatie \n";
 	std::cout << "E  : Eindvijand \n";
 	std::cout << "N  : Normale ruimte \n";
 	std::cout << "L  : Trap omlaag\n";

@@ -12,7 +12,7 @@ private:
 public:
 	int activate()
 	{
-		std::cout << description << std::endl;
+		std::cout << "\n" << description << std::endl;
 
 		// Output and number the choices
 		for (int i = 0; i < this->choices.size(); ++i){

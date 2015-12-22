@@ -15,6 +15,7 @@ Laag::~Laag()
 		}
 		delete vec;
 	}
+	ruimtes.clear();
 }
 
 void Laag::init() {
@@ -22,7 +23,7 @@ void Laag::init() {
 
 std::vector<std::vector<Ruimte*>*>* Laag::getRuimtes()
 {
-	return &std::vector<std::vector<Ruimte*>*>();
+	return &ruimtes;
 }
 
 void Laag::setRuimtes(std::vector<std::vector<Ruimte*>*> _ruimtes)
@@ -40,6 +41,7 @@ std::string Laag::getMap() {
 			Ruimte* r = ruimtes[i][0][j];
 
 			std::string eastIcon;
+			std::string mapIcon;
 			//als oost een kamer is
 			if (!(r->getAdjacentRooms().find("oost") == r->getAdjacentRooms().end())) {
 				eastIcon = "--";
@@ -55,8 +57,13 @@ std::string Laag::getMap() {
 			else {
 				onder += "   ";
 			}
-
-			boven += r->getMapTile() + eastIcon;
+			if (r != startRoom) {
+				mapIcon = r->getMapTile();
+			}
+			else {
+				mapIcon = "S";
+			}
+			boven += mapIcon + eastIcon;
 		}
 		map += boven + "\n";
 		map += onder + "\n";

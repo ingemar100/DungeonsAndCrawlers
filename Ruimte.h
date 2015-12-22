@@ -69,6 +69,15 @@ public:
 	std::map<std::string, Ruimte*>& getAdjacentRooms() {
 		return adjacentRooms;
 	};
+
+	bool heeftTrapOmhoog() {
+		return trapOmhoog;
+	}
+
+	bool heeftTrapOmlaag() {
+		return trapOmlaag;
+	}
+
 private:
 	std::string formaat = "";
 	std::string ordelijkheid = "";
@@ -82,6 +91,7 @@ private:
 	bool visited = false;
 	bool trapOmhoog = false;
 	bool trapOmlaag = false;
+	bool eindbaas = false;
 
 	GameObject* _gameObject = nullptr;
 

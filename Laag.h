@@ -12,9 +12,13 @@ public:
 	void setRuimtes(std::vector<std::vector<Ruimte*>*> ruimtes);
 	std::string getMap();
 	Ruimte* getStartRoom() {
-		return ruimtes[0][0][0];
+		return startRoom;
+	}
+	void setStartRoom(Ruimte* start) {
+		startRoom = start;
 	}
 private:
 	std::vector<std::vector<Ruimte*>*> ruimtes;
+	Ruimte* startRoom = nullptr;
 };
 

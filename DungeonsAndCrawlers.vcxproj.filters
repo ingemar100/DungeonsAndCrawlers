@@ -25,6 +25,9 @@
     <Filter Include="Source Files\Util">
       <UniqueIdentifier>{d39c2eba-3c32-4320-9893-b1453a8deca6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Control">
+      <UniqueIdentifier>{b76ee34c-e2bd-4313-9b7d-01fa3f99f266}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Eindvijand.h">
@@ -98,12 +101,6 @@
     <ClCompile Include="Val.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
-    <ClCompile Include="Engine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Actie.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
@@ -113,11 +110,17 @@
     <ClCompile Include="RoomGenerator.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source Files\Control</Filter>
+    </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Model</Filter>
     </ClCompile>
     <ClCompile Include="GameObjectGenerator.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files\Control</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

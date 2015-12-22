@@ -110,6 +110,7 @@ GameObject* GameObjectGenerator::createGameObject()
 		}
 	}
 	else {
+		delete go;
 		go = nullptr;
 	}
 	// else if == 4 dan wordt er geen GameObject toegevoegd aan de Kamer en is de Kamer leeg. 

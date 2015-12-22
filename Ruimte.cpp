@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include <iostream>
 #include <exception>
+#include "Held.h";
 
 Ruimte::Ruimte()
 {
@@ -70,7 +71,12 @@ std::string Ruimte::getMapTile() {
 	else if (trapOmlaag) {
 		roomIcon = "L";
 	}
-	//check if contains eindvijand
+	else if (this == Held::getInstance().getRuimte()) {
+		roomIcon = "X";
+	}
+	else if (eindbaas) {
+		roomIcon = "E";
+	}
 	else {
 		roomIcon = "N";
 	}

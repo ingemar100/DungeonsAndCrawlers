@@ -43,19 +43,47 @@ void Kerker::init() {
 			for (int k = 0; k < laagGrootte; k++) {
 				Ruimte* r = roomGenerator->createRoom();
 
-				//std::cout << "J: " + j;
-				//ruimtes[j][k].push_back(r);
 				binnenVector->push_back(r);
 			}
 			ruimtes.push_back(binnenVector);
 		}
 		//setten in laag
 		lagen[i]->setRuimtes(ruimtes);
+
+		//adjacencies setten
+		for (int j = 0; j < laagGrootte; j++) {
+			for (int k = 0; k < laagGrootte; k++) {
+				Ruimte* r = ruimtes[j][0][k];
+				std::map<std::string, Ruimte*> adjacencies;
+				//als dit niet aan de onderkant van map is
+				if (j != 0) {
+					Ruimte* adj = ruimtes[j - 1][0][k];
+					std::string w = "zuid";
+					adjacencies.emplace(w, adj);
+				}
+				if (j != laagGrootte - 1) {
+					Ruimte* adj = ruimtes[j + 1][0][k];
+					std::string w = "noord";
+					adjacencies.emplace(w, adj);
+				}
+				if (k != 0) {
+					Ruimte* adj = ruimtes[j][0][k - 1];
+					std::string w = "west";
+					adjacencies.emplace(w, adj);
+				}
+				if (k != laagGrootte - 1) {
+					Ruimte* adj = ruimtes[j][0][k + 1];
+					std::string w = "oost";
+					adjacencies.emplace(w, adj);
+				}
+				r->adjacentRooms = adjacencies;
+			}
+		}
 	}
 
 	Laag* laag = lagen[0];
 	Ruimte* r = laag->getStartRoom();
-	Held::getInstance().setRuimte(r);
+	Held::getInstance().moveTo(r);
 
 	huidigeLaag = laag1;
 

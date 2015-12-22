@@ -11,8 +11,9 @@ public:
 	std::string getNaam();
 	void setNaam(std::string _naam);
 	static Held& getInstance();
-	void setRuimte(Ruimte* _ruimte);
+	void moveTo(Ruimte* _ruimte);
 	Ruimte* getRuimte();
+	static void deleteInstance();
 
 private:
 	static Held* instance;

@@ -74,7 +74,7 @@ GameObjectGenerator::~GameObjectGenerator()
 GameObject* GameObjectGenerator::createGameObject() 
 {
 	GameObject* go = new GameObject();
-	int randIndex = rand() % 3 + 1;
+	int randIndex = rand() % 4 + 1;
 	int counter = 0;
 	if (randIndex == 1) {
 		int randIndex = rand() % wapens.size();
@@ -109,6 +109,7 @@ GameObject* GameObjectGenerator::createGameObject()
 			counter++;
 		}
 	}
-	
+	// else if == 4 dan wordt er geen GameObject toegevoegd aan de Kamer en is de Kamer leeg. 
+
 	return go;
 }

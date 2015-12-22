@@ -8,25 +8,9 @@
 class GameObject;
 class Ruimte
 {
-private:
-	std::string formaat = "";
-	std::string ordelijkheid = "";
-	std::string meubels = "";
-	std::string verlichting = "";
-	std::string opbergruimte = "";
-	std::string versiering = "";
-	std::string temperatuur = "";
-	Val val;
-	std::vector<Spul> spullen;
-
-	GameObject* _gameObject = nullptr;
-
 public:
 	Ruimte();
 	~Ruimte();
-
-	std::string getBeschrijving();
-	std::string getMapTile();
 	void setFormaat(std::string _formaat) {
 		formaat = _formaat;
 	};
@@ -68,7 +52,10 @@ public:
 	};
 	std::string getTemperatuur() {
 		return temperatuur;
-	};
+	}
+
+	std::string getBeschrijving();
+	std::string getMapTile();
 
 	void addGameObject(GameObject* gameObject);
 	void removeObject();
@@ -78,5 +65,28 @@ public:
 	}
 
 	bool hasGameObject() { return _gameObject != nullptr; }
+
+	std::map<std::string, Ruimte*>& getAdjacentRooms() {
+		return adjacentRooms;
+	};
+private:
+	std::string formaat = "";
+	std::string ordelijkheid = "";
+	std::string meubels = "";
+	std::string verlichting = "";
+	std::string opbergruimte = "";
+	std::string versiering = "";
+	std::string temperatuur = "";
+	Val val;
+	std::vector<Spul> spullen;
+	std::map<std::string, Ruimte*> adjacentRooms;
+	bool visited = false;
+	bool trapOmhoog = false;
+	bool trapOmlaag = false;
+
+	GameObject* _gameObject = nullptr;
+
+	friend class Kerker;
+	friend class Held;
 };
 

@@ -79,6 +79,9 @@ public:
 	}
 
 private:
+	int xCoord;
+	int yCoord;
+
 	std::string formaat = "";
 	std::string ordelijkheid = "";
 	std::string meubels = "";
@@ -97,5 +100,6 @@ private:
 
 	friend class Kerker;
 	friend class Held;
+	friend class Engine;
 };
 

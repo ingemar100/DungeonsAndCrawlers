@@ -10,6 +10,9 @@ public:
 	~Kerker();
 	void init();
 	void showMap();
+	int getNiveau();
+	std::vector<Laag*>& getLagen() { return lagen; }
+	void setHuidigeLaag(Laag* nieuw) { huidigeLaag = nieuw; }
 private:
 	std::vector<Laag*> lagen;
 	Laag* huidigeLaag = nullptr;

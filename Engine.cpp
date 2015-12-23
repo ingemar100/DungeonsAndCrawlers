@@ -57,7 +57,7 @@ void Engine::intro() {
 
 void Engine::death() {
 	std::cout << "Jammer, je bent dood";
-	//reset
+	//dialoog met opnieuw beginnen of spel beeindigen
 }
 
 void Engine::playGame() {
@@ -94,7 +94,7 @@ void Engine::playGame() {
 		Held::getInstance().showStatus();
 	}
 	else if (gekozenOptie == 8) { //neem trap
-		std::cout << "Niet geimplementeerd\n";
+		neemTrap();
 	}
 	else if (gekozenOptie == 0) {
 		endGame();
@@ -107,7 +107,11 @@ void Engine::setUp() {
 
 void Engine::endGame()
 {
-	playing = false;
+	Dialogue confirmation ("Wil je het spel beeindigen?", { "Ja", "Nee" });
+	int actie = confirmation.activate();
+	if (actie == 1) {
+		playing = false;
+	}
 }
 
 void Engine::vlucht()
@@ -146,8 +150,28 @@ void Engine::showInventory()
 		opties.push_back("Annuleren");
 		Dialogue inventoryDialoog("De volgende spullen zijn in je inventory te vinden. Kies welk item je wilt gebruiken: ", { opties });
 		int inventoryKeuze = inventoryDialoog.activate();
-		if (inventoryKeuze != 0 && inventoryKeuze != opties.size()) {
+		if (inventoryKeuze != 0 && inventoryKeuze != opties.size()) { //annuleren
 			go[inventoryKeuze - 1]->use();
 		}
 	}
+}
+
+void Engine::neemTrap()
+{
+	int niveau = kerker->getNiveau();
+	auto lagen = kerker->getLagen();
+	Laag* nieuweLaag = lagen[niveau];
+	if (Held::getInstance().getRuimte()->heeftTrapOmhoog() && Held::getInstance().getRuimte()->heeftTrapOmlaag()) {
+		//welke
+	}
+	else if (Held::getInstance().getRuimte()->heeftTrapOmhoog()) {
+		nieuweLaag = lagen[niveau - 1];
+	}
+	else {
+		nieuweLaag = lagen[niveau + 1];
+	}
+
+	Ruimte* nieuw = nieuweLaag->getRuimtes()[0][Held::getInstance().getRuimte()->yCoord][0][Held::getInstance().getRuimte()->xCoord];
+	Held::getInstance().moveTo(nieuw);
+	kerker->setHuidigeLaag(nieuweLaag);
 }

@@ -43,7 +43,8 @@ void Kerker::init() {
 
 			for (int k = 0; k < laagGrootte; k++) {
 				Ruimte* r = roomGenerator->createRoom();
-
+				r->xCoord = k;
+				r->yCoord = j;
 				binnenVector->push_back(r);
 			}
 			ruimtes.push_back(binnenVector);
@@ -116,7 +117,7 @@ void Kerker::init() {
 }
 
 void Kerker::showMap() {
-	std::cout << "Kerkerkaart:\n";
+	std::cout << "Kerkerkaart:" << " niveau " << getNiveau() + 1 << "\n"; //niveau diepte
 	std::cout << huidigeLaag->getMap();
 	std::cout << "Legenda: \n";
 	std::cout << "|- : Gangen \n";
@@ -127,4 +128,10 @@ void Kerker::showMap() {
 	std::cout << "L  : Trap omlaag\n";
 	std::cout << "H  : Trap omhoog \n";
 	std::cout << ".  : Onbekend\n";
+}
+
+int Kerker::getNiveau()
+{
+	int pos = std::find(lagen.begin(), lagen.end(), huidigeLaag) - lagen.begin();
+	return pos;
 }

@@ -35,7 +35,7 @@ std::string Ruimte::getBeschrijving(){
 
 	//if opbergruimte
 	//string += in de hoek staat een <opbergruimte>
-	beschrijving.append("In  de hoek staat een " + opbergruimte);
+	beschrijving.append("In de hoek staat een " + opbergruimte);
 	beschrijving.append(". ");
 
 	//if versiering
@@ -90,7 +90,6 @@ void Ruimte::addGameObject(GameObject * gameObject)
 
 void Ruimte::removeObject()
 {
-	delete _gameObject;
 	_gameObject = nullptr;
 }
 
@@ -98,14 +97,15 @@ GameObject * Ruimte::search()
 {
 	if (_gameObject != nullptr) {
 		if (_gameObject->getType() == GameObject::WAPEN) {
-			std::cout << "Er ligt een " << _gameObject->naam() << " op de grond. Dit Item wordt Toegevoegd aan je Inventory. ";
+			std::cout << "Er ligt een " << _gameObject->naam() << " op de grond.";
 		}
 		else if (_gameObject->getType() == GameObject::ETEN) {
-			std::cout << "Er ligt een " << _gameObject->naam() << " Dit Item wordt Toegevoegd aan je Inventory. ";
+			std::cout << "Je hebt " << _gameObject->naam() << " gevonden.";
 		}
 		else if (_gameObject->getType() == GameObject::KLEDING) {
-			std::cout << "Er ligt een " << _gameObject->naam() << " op de grond. Dit Item wordt Toegevoegd aan je Inventory. ";
+			std::cout << "Er hangt een " << _gameObject->naam() << " in de kamer.";
 		}
+		std::cout << " Dit Item wordt Toegevoegd aan je Inventory. ";
 	}
 	else{
 		std::cout << "Je hebt niks kunnen vinden. ";

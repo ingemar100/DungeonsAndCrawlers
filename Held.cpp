@@ -1,4 +1,5 @@
 #include "Held.h"
+#include "GameObject.h"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -8,11 +9,19 @@ Held::Held()
 {
 	naam = "Adventurer";
 	level = 1;
-	levenspunten = 10;
+	levenspunten = 100;
 	ervaringspunten = 1;
 	aanval = 1;
 	verdediging = 1;
 	opmerkzaamheid = 1;
+}
+
+Held::~Held() {
+	instanceFlag = false;
+	for (GameObject* go : inventory) {
+		delete go;
+	}
+	inventory.clear();
 }
 
 bool Held::instanceFlag = false;
@@ -54,3 +63,15 @@ void Held::deleteInstance()
 	delete instance;
 	instance = nullptr;
 }
+
+void Held::addToInventory(GameObject* _gameObject)
+{
+	inventory.push_back(_gameObject);
+}
+
+std::vector<GameObject*> Held::getInventory()
+{
+	return inventory;
+}
+
+

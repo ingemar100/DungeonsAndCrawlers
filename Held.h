@@ -1,9 +1,10 @@
 #pragma once
-#include "Ruimte.h"
 #include <string>
 #include <vector>
 #include "spul.h"
+#include "Ruimte.h"
 
+class GameObject;
 class Held
 {
 public:
@@ -14,14 +15,15 @@ public:
 	void moveTo(Ruimte* _ruimte);
 	Ruimte* getRuimte();
 	static void deleteInstance();
+	void addToInventory(GameObject* _gameObject);
+	std::vector<GameObject*> getInventory();
 
 private:
 	static Held* instance;
 	static bool instanceFlag;
 	Held();
-	~Held() {
-		instanceFlag = false;
-	};
+	~Held();
+	std::vector<GameObject*> inventory;
 	std::string naam;
 	int level;
 	int levenspunten;

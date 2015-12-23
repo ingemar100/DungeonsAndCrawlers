@@ -79,11 +79,24 @@ void Engine::playGame() {
 		GameObject* go = (Held::getInstance().getRuimte()->search());
 		if (go != nullptr) {
 			Held::getInstance().getRuimte()->removeObject();
+			Held::getInstance().addToInventory(go);
 		}
 	}
 	else if (gekozenOptie == 4) {
 	}
 	else if (gekozenOptie == 5) {
+		std::vector<GameObject*> go = Held::getInstance().getInventory();
+		std::vector<std::string> opties;
+		if (go.size() == 0) {
+			std::cout << " \nJe Invenvtory is leeg MUTHAFACKKAAAAAA\n";
+		}
+		else {
+			for (GameObject* gobject : go) {
+				opties.push_back(gobject->naam());
+			}
+			Dialogue inventoryDialoog("De volgende spullen zijn in je inventory te vinden. Kies maar wat je wilt gebruiken: ", { opties });
+			int inventoryKeuze = inventoryDialoog.activate();
+		}
 	}
 	else if (gekozenOptie == 6) {
 		kerker->showMap();

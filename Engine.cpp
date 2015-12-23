@@ -53,6 +53,29 @@ void Engine::intro() {
 		Held::getInstance().setNaam(nieuweNaam);
 		std::cout << "\nWelkom " + Held::getInstance().getNaam() + "\n\n";
 	}
+
+	std::cout << "Dungeons and crawlers heeft de mogelijkheid om de grootte van de kerker in te stellen. Hoeveel lagen wil je? Voer een getal in tussen 0 en 11 \n";
+	int userInput = -1;
+	while (true)
+	{
+		std::cin >> userInput;
+		if (userInput > 0 && userInput <= 10)
+		{
+			kerker->aantalLagen = userInput;
+			break;
+		}
+	}
+	std::cout << "De kerker zal " << userInput << " lagen hebben. Hoe groot moeten de lagen zijn? Voor een getal is tussen 1 en 11 (dit is de breedte en lengte van de laag)\n";
+	userInput = -1;
+	while (true)
+	{
+		std::cin >> userInput;
+		if (userInput > 1 && userInput <= 10)
+		{
+			kerker->laagAfmeting = userInput;
+			break;
+		}
+	}
 }
 
 void Engine::death() {

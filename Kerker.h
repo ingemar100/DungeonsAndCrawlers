@@ -16,7 +16,11 @@ public:
 private:
 	std::vector<Laag*> lagen;
 	Laag* huidigeLaag = nullptr;
+	int aantalLagen = 3;
+	int laagAfmeting = 3;
 	void slaOp();
 	void laad();
+
+	friend class Engine;
 };
 

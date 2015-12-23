@@ -20,18 +20,16 @@ Kerker::~Kerker()
 }
 
 void Kerker::init() {
-	int laagGrootte = 5;
+	int laagGrootte = laagAfmeting;
 	int ruimte;
 
 	RoomGenerator* roomGenerator = new RoomGenerator();
 
 	//generaar lagen
-	Laag* laag1 = new Laag();
-	Laag* laag2 = new Laag();
-	Laag* laag3 = new Laag();
-	lagen.push_back(laag1);
-	lagen.push_back(laag2);
-	lagen.push_back(laag3);
+	for (int i = 0; i < aantalLagen; i++) {
+		Laag* laag1 = new Laag();
+		lagen.push_back(laag1);
+	}
 
 	//genereer random ruimtes voor iedere laag1
 	for (int i = 0; i < lagen.size(); i++) {
@@ -111,7 +109,7 @@ void Kerker::init() {
 	Ruimte* r = laag->getStartRoom();
 	Held::getInstance().moveTo(r);
 
-	huidigeLaag = laag1;
+	huidigeLaag = laag;
 
 	delete roomGenerator;
 }

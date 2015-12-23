@@ -74,4 +74,15 @@ std::vector<GameObject*> Held::getInventory()
 	return inventory;
 }
 
+void Held::showStatus()
+{
+	std::cout << "==== Status van " << naam << " ====\n";
+	std::cout << "Level: " << level << ", met " << ervaringspunten << " ervaringspunten\n";
+	std::cout << "Aanval: " << aanval << "\n";
+	std::cout << "Verdediging: " << verdediging << "\n";
+	std::cout << "Opmerkzaamheid: " << opmerkzaamheid << "\n";
+	std::cout << "Levenspunten: " << levenspunten << "\n";
+
+}
+
 

@@ -17,6 +17,7 @@ public:
 	static void deleteInstance();
 	void addToInventory(GameObject* _gameObject);
 	std::vector<GameObject*> getInventory();
+	void showStatus();
 
 private:
 	static Held* instance;

@@ -61,7 +61,7 @@ void Engine::death() {
 }
 
 void Engine::playGame() {
-	Dialogue dialoog( "Kies een optie: ", { "Vecht", "Vlucht", "Zoek", "Rust uit", "Bekijk spullen", "Toon kaart" });
+	Dialogue dialoog( "Kies een optie: ", { "Vecht", "Vlucht", "Zoek", "Rust uit", "Bekijk spullen", "Toon kaart", "Status" });
 
 	if (Held::getInstance().getRuimte()->heeftTrapOmlaag() || Held::getInstance().getRuimte()->heeftTrapOmhoog()) {
 		dialoog.addChoice("Neem de trap");
@@ -102,6 +102,9 @@ void Engine::playGame() {
 		kerker->showMap();
 	}
 	else if (gekozenOptie == 7) {
+		Held::getInstance().showStatus();
+	}
+	else if (gekozenOptie == 8) { //neem trap
 		std::cout << "Niet geimplementeerd\n";
 	}
 	else if (gekozenOptie == 0) {

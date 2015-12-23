@@ -17,10 +17,15 @@ public:
 	static void deleteInstance();
 	void addToInventory(GameObject* _gameObject);
 	std::vector<GameObject*> getInventory();
+	void setWapenInGebruik(GameObject* wapen);
+	void setKledingInGebruik(GameObject* kleding);
+	void consumeer(GameObject* eten);
 
 private:
 	static Held* instance;
 	static bool instanceFlag;
+	GameObject* wapenInGebruik = nullptr;
+	GameObject* kledingInGebruik = nullptr;
 	Held();
 	~Held();
 	std::vector<GameObject*> inventory;
@@ -32,7 +37,6 @@ private:
 	int verdediging;
 	int opmerkzaamheid;
 	Ruimte* ruimte;
-
-	//Held instance;
+	void removeFromInventory(GameObject* toRemove);
 };
 

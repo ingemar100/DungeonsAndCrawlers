@@ -24,6 +24,19 @@ Held::~Held() {
 	inventory.clear();
 }
 
+void Held::removeFromInventory(GameObject * toRemove)
+{
+	std::vector<GameObject*>::iterator i = inventory.begin();
+	while (i != inventory.end()) {
+		if (*i == toRemove) {
+			i = inventory.erase(i);
+		}
+		else {
+			i++;
+		}
+	}
+}
+
 bool Held::instanceFlag = false;
 Held* Held::instance = nullptr;
 
@@ -73,5 +86,28 @@ std::vector<GameObject*> Held::getInventory()
 {
 	return inventory;
 }
+
+void Held::setWapenInGebruik(GameObject * wapen)
+{
+	wapenInGebruik = wapen;
+}
+
+void Held::setKledingInGebruik(GameObject * kleding)
+{
+	kledingInGebruik = kleding;
+}
+
+void Held::consumeer(GameObject * eten)
+{
+	removeFromInventory(eten);
+	levenspunten += eten->getStrength();
+	if (levenspunten > 100) {
+		levenspunten = 100;
+	}
+	std::cout << "\nJe hebt " << eten->naam() << " gegeten en krijgt er " << eten->getStrength() << " Levenspunten bij. Je huidge Levenspunten zijn nu " << levenspunten << "\n\n";
+
+	delete eten;
+}
+
 
 

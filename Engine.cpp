@@ -96,6 +96,7 @@ void Engine::playGame() {
 			}
 			Dialogue inventoryDialoog("De volgende spullen zijn in je inventory te vinden. Kies maar wat je wilt gebruiken: ", { opties });
 			int inventoryKeuze = inventoryDialoog.activate();
+			go[inventoryKeuze - 1]->use();
 		}
 	}
 	else if (gekozenOptie == 6) {

@@ -17,8 +17,8 @@ Eend, 6
 Appel,3
 Brood,10
 Water,10
-Wasabi,10
-Habanero,30
+Wasabi,-10
+Habanero,-30
 Healt Potion,20
 Mana Poition,20
 Regeneration Potion,100

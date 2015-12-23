@@ -85,18 +85,7 @@ void Engine::playGame() {
 	else if (gekozenOptie == 4) {
 	}
 	else if (gekozenOptie == 5) {
-		std::vector<GameObject*> go = Held::getInstance().getInventory();
-		std::vector<std::string> opties;
-		if (go.size() == 0) {
-			std::cout << " \nJe Invenvtory is leeg MUTHAFACKKAAAAAA\n";
-		}
-		else {
-			for (GameObject* gobject : go) {
-				opties.push_back(gobject->naam());
-			}
-			Dialogue inventoryDialoog("De volgende spullen zijn in je inventory te vinden. Kies maar wat je wilt gebruiken: ", { opties });
-			int inventoryKeuze = inventoryDialoog.activate();
-		}
+		showInventory();
 	}
 	else if (gekozenOptie == 6) {
 		kerker->showMap();
@@ -136,4 +125,29 @@ void Engine::vlucht()
 
 	Ruimte* doel = adjacentRooms[richtingen[gekozenOptie - 1]];
 	Held::getInstance().moveTo(doel);
+}
+
+void Engine::showInventory()
+{
+	std::vector<GameObject*> go = Held::getInstance().getInventory();
+	std::vector<std::string> opties;
+	if (go.size() == 0) {
+		std::cout << " \nJe Inventory is leeg. Doorzoek kamers om spullen te vinden.\n";
+	}
+	else {
+		for (GameObject* gobject : go) {
+			if (Held::getInstance().getWapenInGebruik() == gobject || Held::getInstance().getKledingInGebruik() == gobject) {
+				opties.push_back(gobject->naam() + " (in gebruik) ");
+			}
+			else {
+				opties.push_back(gobject->naam());
+			}
+		}
+		opties.push_back("Annuleren");
+		Dialogue inventoryDialoog("De volgende spullen zijn in je inventory te vinden. Kies welk item je wilt gebruiken: ", { opties });
+		int inventoryKeuze = inventoryDialoog.activate();
+		if (inventoryKeuze != 0 && inventoryKeuze != opties.size()) {
+			go[inventoryKeuze - 1]->use();
+		}
+	}
 }

@@ -26,7 +26,7 @@ public:
 	bool hit(int enemyAanval);
 
 	void vlucht();
-
+	void addErvaring(int punten);
 	void showInventory();
 
 	GameObject* getWapenInGebruik() { return wapenInGebruik; }
@@ -49,5 +49,6 @@ private:
 	int opmerkzaamheid;
 	Ruimte* ruimte;
 	void removeFromInventory(GameObject* toRemove);
+	void levelUp();
 };
 

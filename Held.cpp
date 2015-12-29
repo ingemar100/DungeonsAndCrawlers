@@ -38,6 +38,40 @@ void Held::removeFromInventory(GameObject * toRemove)
 	}
 }
 
+void Held::levelUp()
+{
+	int aantalKeuzes = 3;
+	std::cout << "Gefeliciteerd! Je hebt level " << ++level << " bereikt.\n";
+	std::cout << "Je kunt " << aantalKeuzes << " vaardigheden ophogen.\n";
+
+	while (aantalKeuzes > 0) {
+		Dialogue levelUpDia("Kies een vaardigheid.", {
+			"Levenspunten (" + std::to_string(levenspunten) + ")",
+			"Aanval (" + std::to_string(aanval) + ")",
+			"Verdediging (" + std::to_string(verdediging) + ")",
+			"Opmerkzaamheid (" + std::to_string(opmerkzaamheid) + ")" });
+
+		int keuze = levelUpDia.activate();
+		int hoeveelheid = 1;
+		if (keuze == 1) {
+			levenspunten += hoeveelheid;
+		}
+		else if (keuze == 2) {
+			aanval += hoeveelheid;
+		}
+		else if (keuze == 3) {
+			verdediging += hoeveelheid;
+		}
+		else if (keuze == 4) {
+			opmerkzaamheid += hoeveelheid;
+		}
+		else if (keuze == 0) {
+			continue;
+		}
+		aantalKeuzes--;
+	}
+}
+
 bool Held::instanceFlag = false;
 Held* Held::instance = nullptr;
 
@@ -173,6 +207,17 @@ void Held::vlucht()
 
 	Ruimte* doel = adjacentRooms[richtingen[gekozenOptie - 1]];
 	Held::getInstance().moveTo(doel);
+}
+
+void Held::addErvaring(int punten)
+{
+	ervaringspunten += punten;
+	int ervaringPerLevel = 100;
+
+	if (ervaringspunten > ervaringPerLevel) {
+		levelUp();
+		ervaringspunten -= ervaringPerLevel;
+	}
 }
 
 void Held::showInventory()

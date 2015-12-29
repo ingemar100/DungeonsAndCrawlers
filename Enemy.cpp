@@ -30,6 +30,8 @@ bool Enemy::hit(int heldAanval)
 		}
 		else {
 			std::cout << name << " is dood!\n";
+			int ervaring = aanval + levenspunten + verdediging;
+			Held::getInstance().addErvaring(ervaring);
 		}
 	}
 	return checkAlive();

@@ -1,14 +1,14 @@
-Rat,3,5,0
-Capibara,4,8,20
-Wesp,1,10,60
+Rat,3,5,20
+Capibara,5,8,10
+Wesp,1,5,60
 
-Wilde Papagaai,5,25,20
-Wilde Hond,4,40,10
-Wilde Kat,2,35,35
+Wilde Papagaai,5,12,20
+Wilde Hond,4,20,10
+Wilde Kat,2,25,35
 
-Slang,5,40,30
+Slang,5,30,30
 Vogelspin,3,10,30
-Koala,12,30,5
+Koala,12,25,5
 
 Gemuteerde Rat,10,30,15
 Schorpioen,20,20,10

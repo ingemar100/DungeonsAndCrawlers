@@ -7,6 +7,7 @@
 
 Kerker::Kerker()
 {
+	eg = new EnemyGenerator();
 }
 
 
@@ -17,6 +18,9 @@ Kerker::~Kerker()
 		l = nullptr;
 	}
 	lagen.clear();
+
+	delete eg;
+	eg = nullptr;
 }
 
 void Kerker::init() {
@@ -41,6 +45,8 @@ void Kerker::init() {
 
 			for (int k = 0; k < laagGrootte; k++) {
 				Ruimte* r = roomGenerator->createRoom();
+				//enemies toevoegen
+				r->addEnemy(eg->createEnemy(i, i + 2));
 				r->xCoord = k;
 				r->yCoord = j;
 				binnenVector->push_back(r);

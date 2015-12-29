@@ -19,7 +19,6 @@ RoomGenerator::RoomGenerator()
 		counter++;
 	}
 	gog = new GameObjectGenerator();
-	eg = new EnemyGenerator();
 }
 
 
@@ -27,9 +26,6 @@ RoomGenerator::~RoomGenerator()
 {
 	delete gog;
 	gog = nullptr;
-	
-	delete eg;
-	eg = nullptr;
 }
 
 
@@ -58,7 +54,6 @@ Ruimte* RoomGenerator::createRoom() {
 		room->setTemperatuur(properties["temperatuur"][RandIndex]);
 
 		room->addGameObject(gog->createGameObject());
-		room->addEnemy(eg->createEnemy(1,2));
 	}
 	catch (...) {
 		std::cout << "Invalid room properties";

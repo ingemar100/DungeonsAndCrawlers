@@ -2,6 +2,7 @@
 #include <vector>
 #include "Laag.h"
 #include "RoomGenerator.h"
+#include "EnemyGenerator.h"
 
 class Kerker
 {
@@ -20,6 +21,7 @@ private:
 	int laagAfmeting = 3;
 	void slaOp();
 	void laad();
+	EnemyGenerator* eg = nullptr;
 
 	friend class Engine;
 };

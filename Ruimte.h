@@ -3,6 +3,7 @@
 #include <vector>
 #include "Spul.h"
 #include "Val.h"
+#include "Enemy.h"
 #include <map>
 
 class GameObject;
@@ -63,8 +64,14 @@ public:
 	GameObject* getGameObject() {
 		return _gameObject;
 	}
-
 	bool hasGameObject() { return _gameObject != nullptr; }
+
+	void addEnemy(Enemy* enemy);
+	void destroyEnemy();
+	Enemy* getEnemy() {
+		return _enemy;
+	}
+	bool hasEnemy() { return _enemy != nullptr; }
 
 	std::map<std::string, Ruimte*>& getAdjacentRooms() {
 		return adjacentRooms;
@@ -97,6 +104,7 @@ private:
 	bool eindbaas = false;
 
 	GameObject* _gameObject = nullptr;
+	Enemy* _enemy = nullptr;
 
 	friend class Kerker;
 	friend class Held;

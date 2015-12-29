@@ -127,3 +127,19 @@ void Held::consumeer(GameObject * eten)
 	delete eten;
 }
 
+int Held::getAanval() 
+{
+	if (wapenInGebruik != nullptr) {
+		return aanval + getWapenInGebruik()->getStrength();
+	}
+	return aanval;
+}
+
+bool Held::hit(int enemyAanval)
+{
+	levenspunten -= enemyAanval;
+	if (isAlive()) {
+		std::cout << "Je bent geraakt door je tegenstander. Je hebt nog " << levenspunten << " levenspunten over. \n";
+	}
+	return isAlive();
+}

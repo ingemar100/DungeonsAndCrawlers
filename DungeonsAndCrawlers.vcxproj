@@ -120,27 +120,26 @@
   <ItemGroup>
     <ClInclude Include="Actie.h" />
     <ClInclude Include="Dialogue.h" />
-    <ClInclude Include="Eindvijand.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyGenerator.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectGenerator.h" />
-    <ClInclude Include="Gevecht.h" />
     <ClInclude Include="Held.h" />
     <ClInclude Include="Kerker.h" />
     <ClInclude Include="Laag.h" />
     <ClInclude Include="RandomGenerator.h" />
     <ClInclude Include="RoomGenerator.h" />
     <ClInclude Include="Ruimte.h" />
-    <ClInclude Include="Tegenstander.h" />
     <ClInclude Include="Val.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Actie.cpp" />
-    <ClCompile Include="Eindvijand.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyGenerator.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectGenerator.cpp" />
-    <ClCompile Include="Gevecht.cpp" />
     <ClCompile Include="Held.cpp" />
     <ClCompile Include="Kerker.cpp" />
     <ClCompile Include="Laag.cpp" />
@@ -148,7 +147,6 @@
     <ClCompile Include="RandomGenerator.cpp" />
     <ClCompile Include="RoomGenerator.cpp" />
     <ClCompile Include="Ruimte.cpp" />
-    <ClCompile Include="Tegenstander.cpp" />
     <ClCompile Include="Val.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

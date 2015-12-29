@@ -1,0 +1,11 @@
+rat,5,2,2
+Hamster,5,2,2
+Konijn,6,2,2
+Papagaai,7,3,3
+Wilde Hond,10,3,3
+
+Test,5,2,2
+Testt,2,2,2
+Testtt,3,1,2
+Testttt,4,3,2
+Testtttt,6,4,2

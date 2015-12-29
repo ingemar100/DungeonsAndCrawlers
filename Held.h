@@ -21,6 +21,8 @@ public:
 	void setWapenInGebruik(GameObject* wapen);
 	void setKledingInGebruik(GameObject* kleding);
 	void consumeer(GameObject* eten);
+	int getAanval();
+	bool hit(int enemyAanval);
 
 	GameObject* getWapenInGebruik() { return wapenInGebruik; }
 	GameObject* getKledingInGebruik() { return kledingInGebruik; }

@@ -30,12 +30,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Eindvijand.h">
-      <Filter>Header Files\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="Gevecht.h">
-      <Filter>Header Files\Model</Filter>
-    </ClInclude>
     <ClInclude Include="Held.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
@@ -46,9 +40,6 @@
       <Filter>Header Files\Model</Filter>
     </ClInclude>
     <ClInclude Include="Ruimte.h">
-      <Filter>Header Files\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="Tegenstander.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
     <ClInclude Include="Val.h">
@@ -69,21 +60,21 @@
     <ClInclude Include="Dialogue.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyGenerator.h">
+      <Filter>Header Files\Util</Filter>
     </ClInclude>
     <ClInclude Include="GameObjectGenerator.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Held.cpp">
-      <Filter>Source Files\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="Eindvijand.cpp">
-      <Filter>Source Files\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="Gevecht.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
     <ClCompile Include="Kerker.cpp">
@@ -93,9 +84,6 @@
       <Filter>Source Files\Model</Filter>
     </ClCompile>
     <ClCompile Include="Ruimte.cpp">
-      <Filter>Source Files\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="Tegenstander.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
     <ClCompile Include="Val.cpp">
@@ -121,6 +109,12 @@
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyGenerator.cpp">
+      <Filter>Source Files\Util</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

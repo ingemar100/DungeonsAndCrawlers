@@ -15,6 +15,10 @@ Ruimte::~Ruimte()
 		delete _gameObject;
 		_gameObject = nullptr;
 	}
+	if (_enemy != nullptr) {
+		delete _enemy;
+		_enemy = nullptr;
+	}
 }
 
 std::string Ruimte::getBeschrijving(){
@@ -56,6 +60,10 @@ std::string Ruimte::getBeschrijving(){
 	}
 	if (trapOmlaag) {
 		beschrijving.append("De kamer heeft een trap omlaag.\n");
+	}
+
+	if (hasEnemy()) {
+		beschrijving.append("\nAanwezig: " + _enemy->getName() +  "\n");
 	}
 	return beschrijving;
 }
@@ -113,5 +121,15 @@ GameObject * Ruimte::search()
 	std::cout << "\n\n";
 
 	return _gameObject;
+}
+
+void Ruimte::addEnemy(Enemy * enemy)
+{
+	_enemy = enemy;
+}
+
+void Ruimte::destroyEnemy()
+{
+	_enemy = nullptr;
 }
 

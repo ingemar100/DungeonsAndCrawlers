@@ -93,7 +93,20 @@ void Engine::playGame() {
 	int gekozenOptie = dialoog.activate();
 
 	if (gekozenOptie == 1) {
-		std::cout << "\n" + Held::getInstance().getNaam() + " valt rat aan\n";
+		Enemy* enemy = Held::getInstance().getRuimte()->getEnemy();		
+		if (Held::getInstance().getRuimte()->hasEnemy()) {
+			std::cout << "\n" + Held::getInstance().getNaam() + " valt " + enemy->getName() + " aan\n";
+			if (!enemy->hit(Held::getInstance().getAanval())) {
+				Held::getInstance().getRuimte()->destroyEnemy();
+			}
+			else {
+				std::cout << "\n" + enemy->getName() + " valt " + Held::getInstance().getNaam() + " aan\n";
+				Held::getInstance().hit(enemy->getAanval());
+			}
+		}
+		else {
+			std::cout << "\n Er zijn geen enemies meer aanwezig. \n";
+		}
 	}
 	else if (gekozenOptie == 2) {
 		vlucht();

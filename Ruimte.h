@@ -67,11 +67,11 @@ public:
 	bool hasGameObject() { return _gameObject != nullptr; }
 
 	void addEnemy(Enemy* enemy);
-	void destroyEnemy();
-	Enemy* getEnemy() {
-		return _enemy;
+	void destroyEnemy(Enemy* toRemove);
+	std::vector<Enemy*>& getEnemies() {
+		return _enemies;
 	}
-	bool hasEnemy() { return _enemy != nullptr; }
+	bool hasEnemy() { return _enemies.size() > 0; }
 
 	std::map<std::string, Ruimte*>& getAdjacentRooms() {
 		return adjacentRooms;
@@ -104,7 +104,7 @@ private:
 	bool eindbaas = false;
 
 	GameObject* _gameObject = nullptr;
-	Enemy* _enemy = nullptr;
+	std::vector<Enemy*> _enemies;
 
 	friend class Kerker;
 	friend class Held;

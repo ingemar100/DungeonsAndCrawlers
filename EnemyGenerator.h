@@ -2,6 +2,7 @@
 #include <map>
 #include <vector>
 #include "Enemy.h"
+#include "Ruimte.h"
 
 class Enemy;
 class EnemyGenerator
@@ -12,6 +13,6 @@ private:
 public:
 	EnemyGenerator();
 	~EnemyGenerator();
-	Enemy* createEnemy(int minLevel, int maxLevel);
+	void addEnemies(int minLevel, int maxLevel, Ruimte* room);
 };
 

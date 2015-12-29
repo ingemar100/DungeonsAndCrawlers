@@ -101,7 +101,7 @@ void Engine::playGame() {
 			delete g;
 		}
 		else {
-			std::cout << "\nEr zijn geen enemies aanwezig. \n";
+			std::cout << "\nEr zijn geen vijanden aanwezig. \n";
 		}
 	}
 	else if (gekozenOptie == 2) {
@@ -152,7 +152,14 @@ void Engine::neemTrap()
 	auto lagen = kerker->getLagen();
 	Laag* nieuweLaag = lagen[niveau];
 	if (Held::getInstance().getRuimte()->heeftTrapOmhoog() && Held::getInstance().getRuimte()->heeftTrapOmlaag()) {
-		//welke
+		Dialogue trap("Welke trap?", { "Omhoog", "Omlaag" });
+		int w = trap.activate();
+		if (w == 1) {
+			nieuweLaag = lagen[niveau - 1];
+		}
+		else if (w == 2) {
+			nieuweLaag = lagen[niveau + 1];
+		}
 	}
 	else if (Held::getInstance().getRuimte()->heeftTrapOmhoog()) {
 		nieuweLaag = lagen[niveau - 1];

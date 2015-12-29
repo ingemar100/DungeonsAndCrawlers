@@ -15,10 +15,11 @@ Ruimte::~Ruimte()
 		delete _gameObject;
 		_gameObject = nullptr;
 	}
-	if (_enemy != nullptr) {
-		delete _enemy;
-		_enemy = nullptr;
+	for (auto e : _enemies) {
+		delete e;
+		e = nullptr;
 	}
+	_enemies.clear();
 }
 
 std::string Ruimte::getBeschrijving(){
@@ -63,7 +64,11 @@ std::string Ruimte::getBeschrijving(){
 	}
 
 	if (hasEnemy()) {
-		beschrijving.append("\nAanwezig: " + _enemy->getName() +  "\n");
+		beschrijving.append("\nAanwezig: "); 
+		for (auto enemy : _enemies) {
+			beschrijving.append(enemy->getName() + ",");
+		}
+		beschrijving.append("\n");
 	}
 	return beschrijving;
 }
@@ -113,7 +118,7 @@ GameObject * Ruimte::search()
 		else if (_gameObject->getType() == GameObject::KLEDING) {
 			std::cout << "Er hangt een " << _gameObject->naam() << " in de kamer.";
 		}
-		std::cout << " Dit Item wordt Toegevoegd aan je Inventory. ";
+		std::cout << " Dit Item wordt toegevoegd aan je Inventory. ";
 	}
 	else{
 		std::cout << "Je hebt niks kunnen vinden. ";
@@ -125,12 +130,20 @@ GameObject * Ruimte::search()
 
 void Ruimte::addEnemy(Enemy * enemy)
 {
-	_enemy = enemy;
+	_enemies.push_back(enemy);
 }
 
-void Ruimte::destroyEnemy()
+void Ruimte::destroyEnemy(Enemy* toRemove)
 {
-	delete _enemy;
-	_enemy = nullptr;
+	std::vector<Enemy*>::iterator i = _enemies.begin();
+	while (i != _enemies.end()) {
+		if (*i == toRemove) {
+			delete toRemove;
+			i = _enemies.erase(i);
+		}
+		else {
+			i++;
+		}
+	}
 }
 

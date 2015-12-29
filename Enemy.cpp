@@ -73,6 +73,6 @@ void Enemy::setAanval(int _aanval)
 void Enemy::doeActie()
 {
 
-	std::cout << "\n" + name + " valt " + Held::getInstance().getNaam() + " aan\n";
+	std::cout << "\n" + name + " valt " + Held::getInstance().getNaam() + " aan...\n";
 	Held::getInstance().hit(aanval);
 }

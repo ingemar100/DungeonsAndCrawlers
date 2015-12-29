@@ -17,6 +17,7 @@ public:
 	std::string getName() { return name; }
 	int getAanval() { return aanval; }
 	int getLevenspunten() { return levenspunten; }
+	int getVerdediging() { return verdediging; }
 	void setName(std::string _name);
 	void setLevel(int _level);
 	void setLevenspunten(int _levenspunten);

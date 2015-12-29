@@ -29,12 +29,20 @@ void Gevecht::playTurn()
 		//doe niks
 	}
 	else if (keuze == 1) {
-		Enemy* enemy = ruimte->getEnemy();
-		std::cout << "\n" + Held::getInstance().getNaam() + " valt " + enemy->getName() + " aan\n";
+		//welke vijand
+		std::vector<Enemy*> aanwezig = ruimte->getEnemies();
+		std::vector<std::string> opties;
+		for (auto enemy : aanwezig) {
+			opties.push_back(enemy->getName() + " (aanval: " + std::to_string(enemy->getAanval()) + ", verd.: " + std::to_string(enemy->getVerdediging()) + ", levensp.: " + std::to_string(enemy->getLevenspunten()) + ")"); 
+		}
+		Dialogue vijandKeuze("Welke vijand?", opties);
+		int vijand = vijandKeuze.activate() - 1;
+
+		Enemy* enemy = aanwezig[vijand];
+		std::cout << "\n" + Held::getInstance().getNaam() + " valt " + enemy->getName() + " aan...\n";
 		if (!enemy->hit(Held::getInstance().getAanval())) {
-			Held::getInstance().getRuimte()->destroyEnemy();
-			fighting = false;
-			return;	//einde gevecht
+			Held::getInstance().getRuimte()->destroyEnemy(enemy);
+			fighting = ruimte->hasEnemy();
 		}
 	}
 	else if (keuze == 2) {
@@ -49,6 +57,7 @@ void Gevecht::playTurn()
 	}
 
 	//enemy doet actie
-	Enemy* enemy = ruimte->getEnemy();
-	enemy->doeActie();
+	for (Enemy* enemy : ruimte->getEnemies()) {
+		enemy->doeActie();
+	}
 }

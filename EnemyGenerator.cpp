@@ -46,29 +46,33 @@ EnemyGenerator::~EnemyGenerator()
 	enemies.clear();
 }
 
-Enemy* EnemyGenerator::createEnemy(int minLevel, int maxLevel) {
+void EnemyGenerator::addEnemies(int minLevel, int maxLevel, Ruimte* room) {
 	if (minLevel < 1) {
 		minLevel = 1;
 	}
 	if (maxLevel > 10) {
 		maxLevel = 10;
 	}
-	int level = rand() % (maxLevel - minLevel + 1) + minLevel;
 
-	if (enemies[level].size() == 0) {
-		return nullptr;
+	int numEnemies = rand() % 3 + 1;
+	for (int i = 0; i < numEnemies; i++) {
+		int level = rand() % (maxLevel - minLevel + 1) + minLevel;
+
+		if (enemies[level].size() == 0) {
+			continue;
+		}
+
+		Enemy* enemy = new Enemy();
+		int RandIndex = rand() % enemies[level].size();
+
+		std::string enemyNaam = enemyIndexes[level][RandIndex];
+		auto props = enemies[level][enemyNaam];
+
+		enemy->setName(enemyNaam);
+		enemy->setLevenspunten(props[0]);
+		enemy->setAanval(props[1]);
+		enemy->setVerdediging(props[2]);
+
+		room->addEnemy(enemy);
 	}
-
-	Enemy* enemy = new Enemy();
-	int RandIndex = rand() % enemies[level].size();
-	
-	std::string enemyNaam = enemyIndexes[level][RandIndex];
-	auto props = enemies[level][enemyNaam];
-
-	enemy->setName(enemyNaam);
-	enemy->setLevenspunten(props[0]);
-	enemy->setAanval(props[1]);
-	enemy->setVerdediging(props[2]);
-
-	return enemy;
 }									

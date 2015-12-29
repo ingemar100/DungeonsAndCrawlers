@@ -28,6 +28,9 @@
     <Filter Include="Source Files\Control">
       <UniqueIdentifier>{b76ee34c-e2bd-4313-9b7d-01fa3f99f266}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Control">
+      <UniqueIdentifier>{784183f2-91ee-4415-942f-410d6c541ea7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Held.h">
@@ -72,6 +75,9 @@
     <ClInclude Include="GameObjectGenerator.h">
       <Filter>Header Files\Util</Filter>
     </ClInclude>
+    <ClInclude Include="Gevecht.h">
+      <Filter>Header Files\Control</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Held.cpp">
@@ -115,6 +121,9 @@
     </ClCompile>
     <ClCompile Include="EnemyGenerator.cpp">
       <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Gevecht.cpp">
+      <Filter>Source Files\Control</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

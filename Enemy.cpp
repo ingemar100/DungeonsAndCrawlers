@@ -2,6 +2,7 @@
 #include <string>
 #include <map>
 #include <iostream>
+#include "Held.h"
 
 Enemy::Enemy()
 {
@@ -12,22 +13,24 @@ Enemy::~Enemy()
 {
 }
 
-int Enemy::attack()
-{
-	std::cout << "Je bent aangevallen door je tegenstander, je verlies" << aanval << " van je levenspunten \n";
-	return aanval;
-}
 
 bool Enemy::hit(int heldAanval)
 {
-	levenspunten -= heldAanval;
-	if (checkAlive()) {
-		std::cout << "Je hebt je tegenstander geraakt, maar hij heeft nog steeds " << levenspunten << " levenspunten over \n";
-		return true;
+	this->verdediging;
+	int r = rand() % 100;
+	if (r < verdediging) {
+		//ontweken
+		std::cout << name << " heeft de aanval ontweken!\n";
 	}
 	else {
-		std::cout << name << " is dood!\n";
-		return false;
+		levenspunten -= heldAanval;
+		std::cout << "Je doet " << heldAanval << " schade aan de " << name << ". ";
+		if (checkAlive()) {
+			std::cout << "Hij heeft nog " << levenspunten << " levenspunten over \n";
+		}
+		else {
+			std::cout << name << " is dood!\n";
+		}
 	}
 	return checkAlive();
 }
@@ -63,4 +66,11 @@ void Enemy::setVerdediging(int _verdediging)
 void Enemy::setAanval(int _aanval)
 {
 	aanval = _aanval;
+}
+
+void Enemy::doeActie()
+{
+
+	std::cout << "\n" + name + " valt " + Held::getInstance().getNaam() + " aan\n";
+	Held::getInstance().hit(aanval);
 }

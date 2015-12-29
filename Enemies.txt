@@ -1,43 +1,40 @@
-rat,3,2,0
-Capibara,5,1,3
-Wesp,1,3,5
+Rat,3,5,0
+Capibara,4,8,20
+Wesp,1,10,60
 
-Wilde Papagaai,5,4,1
-Wilde Hond,10,3,3
-Wilde Kat,5,2,2
+Wilde Papagaai,5,25,20
+Wilde Hond,4,40,10
+Wilde Kat,2,35,35
 
-Slang,5,2,2
-Vogelspin,6,2,2
-Koala,7,3,3
+Slang,5,40,30
+Vogelspin,3,10,30
+Koala,12,30,5
 
-Gemuteerde Rat,10,3,3
-Schorpioen,5,2,2
-Geest,5,2,2
+Gemuteerde Rat,10,30,15
+Schorpioen,20,20,10
+Geest,5,15,80
 
-Weerwolf,5,2,2
-Vampier,5,2,2
-Big Foot,5,2,2
+Weerwolf,30,40,20
+Vampier,30,20,30
+Big Foot,20,50,0
 
-Verschirkkelijke SneeuwMan,6,2,2
-Zelfmoord Terrorist,7,3,3
-Kalkoen,10,3,3
+Verschrikkelijke Sneeuwman,25,50,10
+Zelfmoordterrorist,10,99,0
+Radioactieve kalkoen,30,30,30
 
-Osama Bin Loading,5,2,2
-Pac Man,5,2,2
-Krokodil,6,2,2
+Ondode koe,50,20,0
+Babydraak,25,50,30
+Krokodil,40,40,25
 
-Reuze schildpad,5,2,2
-Zwevende kwal,10,3,3
-Vuur spugende Octopus,5,2,2
+Reuzenschildpad,50,30,60
+Zwevende kwal,25,30,80
+Trol,30,40,30
 
-Mamoet,5,2,2
-Ridder,6,2,2
-Tovernaar,7,3,3
+Mammoet,100,50,10
+Kwaadaardige ridder,80,45,30
+Donkere tovenaar,20,55,65
+Vuurspugende Octopus,40,50,50
 
-Captain Jack Sparrow,10,3,3
-Orc,5,2,2
-Team Rocket,5,2,2
-
-Cycloop,6,2,2
-Demoon,7,3,3
-Trol,10,3,3
+Orc,100,60,35
+Cycloop,120,80,25
+Demoon,150,60,25

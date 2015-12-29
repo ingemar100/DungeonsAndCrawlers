@@ -130,6 +130,7 @@ void Ruimte::addEnemy(Enemy * enemy)
 
 void Ruimte::destroyEnemy()
 {
+	delete _enemy;
 	_enemy = nullptr;
 }
 

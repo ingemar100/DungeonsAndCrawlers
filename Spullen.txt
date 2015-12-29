@@ -26,8 +26,9 @@ Strength Potion,50
 Opmerkzaamheid Poition,50
 Verdedigings Potion,50
 __________
-Bontjas,2
+Bontjas,5
 Leather armor,10
 MalienKolder,30
 Mage Robe,50
+Harnas,60
 Hakama,70

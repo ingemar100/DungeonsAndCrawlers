@@ -1,5 +1,6 @@
 #include "Held.h"
 #include "GameObject.h"
+#include "Dialogue.h"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -127,19 +128,73 @@ void Held::consumeer(GameObject * eten)
 	delete eten;
 }
 
-int Held::getAanval() 
+int Held::getAanval()
 {
 	if (wapenInGebruik != nullptr) {
-		return aanval + getWapenInGebruik()->getStrength();
+		return aanval + wapenInGebruik->getStrength();
 	}
 	return aanval;
+}
+
+int Held::getVerdediging()
+{
+	if (kledingInGebruik != nullptr) {
+		return verdediging + kledingInGebruik->getStrength();
+	}
+	return verdediging;
 }
 
 bool Held::hit(int enemyAanval)
 {
 	levenspunten -= enemyAanval;
-	if (isAlive()) {
-		std::cout << "Je bent geraakt door je tegenstander. Je hebt nog " << levenspunten << " levenspunten over. \n";
+	int r = rand() % 100;
+	if (r < getVerdediging()) {
+		std::cout << "Je blokkeert de aanval!\n";
+	}
+	else {		
+		std::cout << "Je tegenstander doet " << enemyAanval << " schade. Je hebt nog " << levenspunten << " levenspunten over. \n";
 	}
 	return isAlive();
+}
+
+
+void Held::vlucht()
+{
+	std::map<std::string, Ruimte*> adjacentRooms = Held::getInstance().getRuimte()->getAdjacentRooms();
+	std::vector<std::string> richtingen = std::vector<std::string>();
+
+	for (auto e : adjacentRooms) {
+		richtingen.push_back(e.first);
+	}
+
+	Dialogue dialoog("Welke richting?", { richtingen });
+
+	int gekozenOptie = dialoog.activate();
+
+	Ruimte* doel = adjacentRooms[richtingen[gekozenOptie - 1]];
+	Held::getInstance().moveTo(doel);
+}
+
+void Held::showInventory()
+{
+	std::vector<GameObject*> go = Held::getInstance().getInventory();
+	std::vector<std::string> opties;
+	if (go.size() == 0) {
+		std::cout << " \nJe Inventory is leeg. Doorzoek kamers om spullen te vinden.\n";
+	}
+	else {
+		for (GameObject* gobject : go) {
+			std::string optieString = gobject->naam() + " (" + std::to_string(gobject->getStrength()) + ")";
+			if (Held::getInstance().getWapenInGebruik() == gobject || Held::getInstance().getKledingInGebruik() == gobject) {
+				optieString += " (in gebruik) ";
+			}
+			opties.push_back(optieString);
+		}
+		opties.push_back("Annuleren");
+		Dialogue inventoryDialoog("De volgende spullen zijn in je inventory te vinden. Kies welk item je wilt gebruiken: ", { opties });
+		int inventoryKeuze = inventoryDialoog.activate();
+		if (inventoryKeuze != 0 && inventoryKeuze != opties.size()) { //annuleren
+			go[inventoryKeuze - 1]->use();
+		}
+	}
 }

@@ -2,6 +2,7 @@
 #include "Held.h"
 #include <iostream>
 #include "Dialogue.h"
+#include "Gevecht.h"
 
 Engine::Engine()
 {
@@ -84,7 +85,7 @@ void Engine::death() {
 }
 
 void Engine::playGame() {
-	Dialogue dialoog( "Kies een optie: ", { "Vecht", "Vlucht", "Zoek", "Rust uit", "Bekijk spullen", "Toon kaart", "Status" });
+	Dialogue dialoog( "Kies een optie: ", { "Vecht", "Verplaats", "Zoek", "Rust uit", "Bekijk spullen", "Toon kaart", "Status" });
 
 	if (Held::getInstance().getRuimte()->heeftTrapOmlaag() || Held::getInstance().getRuimte()->heeftTrapOmhoog()) {
 		dialoog.addChoice("Neem de trap");
@@ -93,23 +94,18 @@ void Engine::playGame() {
 	int gekozenOptie = dialoog.activate();
 
 	if (gekozenOptie == 1) {
-		Enemy* enemy = Held::getInstance().getRuimte()->getEnemy();		
 		if (Held::getInstance().getRuimte()->hasEnemy()) {
-			std::cout << "\n" + Held::getInstance().getNaam() + " valt " + enemy->getName() + " aan\n";
-			if (!enemy->hit(Held::getInstance().getAanval())) {
-				Held::getInstance().getRuimte()->destroyEnemy();
-			}
-			else {
-				std::cout << "\n" + enemy->getName() + " valt " + Held::getInstance().getNaam() + " aan\n";
-				Held::getInstance().hit(enemy->getAanval());
-			}
+			Gevecht* g = new Gevecht(Held::getInstance().getRuimte());
+			g->start();
+
+			delete g;
 		}
 		else {
-			std::cout << "\n Er zijn geen enemies meer aanwezig. \n";
+			std::cout << "\nEr zijn geen enemies aanwezig. \n";
 		}
 	}
 	else if (gekozenOptie == 2) {
-		vlucht();
+		Held::getInstance().vlucht();
 	}
 	else if (gekozenOptie == 3) {
 		GameObject* go = (Held::getInstance().getRuimte()->search());
@@ -121,7 +117,7 @@ void Engine::playGame() {
 	else if (gekozenOptie == 4) {
 	}
 	else if (gekozenOptie == 5) {
-		showInventory();
+		Held::getInstance().showInventory();
 	}
 	else if (gekozenOptie == 6) {
 		kerker->showMap();
@@ -147,48 +143,6 @@ void Engine::endGame()
 	int actie = confirmation.activate();
 	if (actie == 1) {
 		playing = false;
-	}
-}
-
-void Engine::vlucht()
-{
-	std::map<std::string, Ruimte*> adjacentRooms = Held::getInstance().getRuimte()->getAdjacentRooms();
-	std::vector<std::string> richtingen = std::vector<std::string>();
-	
-	for (auto e : adjacentRooms) {
-		richtingen.push_back(e.first);
-	}
-
-	Dialogue dialoog("Welke richting?", { richtingen });
-
-	int gekozenOptie = dialoog.activate();
-
-	Ruimte* doel = adjacentRooms[richtingen[gekozenOptie - 1]];
-	Held::getInstance().moveTo(doel);
-}
-
-void Engine::showInventory()
-{
-	std::vector<GameObject*> go = Held::getInstance().getInventory();
-	std::vector<std::string> opties;
-	if (go.size() == 0) {
-		std::cout << " \nJe Inventory is leeg. Doorzoek kamers om spullen te vinden.\n";
-	}
-	else {
-		for (GameObject* gobject : go) {
-			if (Held::getInstance().getWapenInGebruik() == gobject || Held::getInstance().getKledingInGebruik() == gobject) {
-				opties.push_back(gobject->naam() + " (in gebruik) ");
-			}
-			else {
-				opties.push_back(gobject->naam());
-			}
-		}
-		opties.push_back("Annuleren");
-		Dialogue inventoryDialoog("De volgende spullen zijn in je inventory te vinden. Kies welk item je wilt gebruiken: ", { opties });
-		int inventoryKeuze = inventoryDialoog.activate();
-		if (inventoryKeuze != 0 && inventoryKeuze != opties.size()) { //annuleren
-			go[inventoryKeuze - 1]->use();
-		}
 	}
 }
 

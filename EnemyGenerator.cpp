@@ -47,7 +47,13 @@ EnemyGenerator::~EnemyGenerator()
 }
 
 Enemy* EnemyGenerator::createEnemy(int minLevel, int maxLevel) {
-	int level = rand() % maxLevel + minLevel;
+	if (minLevel < 1) {
+		minLevel = 1;
+	}
+	if (maxLevel > 10) {
+		maxLevel = 10;
+	}
+	int level = rand() % (maxLevel - minLevel + 1) + minLevel;
 
 	if (enemies[level].size() == 0) {
 		return nullptr;

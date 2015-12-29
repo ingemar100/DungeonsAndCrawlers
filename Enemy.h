@@ -12,7 +12,6 @@ protected:
 	std::string name = "";
 
 public:
-	int attack();
 	bool hit(int heldAanval);
 	bool checkAlive();
 	std::string getName() { return name; }
@@ -23,7 +22,8 @@ public:
 	void setLevenspunten(int _levenspunten);
 	void setVerdediging(int _verdediging);
 	void setAanval(int _aanval);
-
+	void doeActie();
+	
 	Enemy();
 	~Enemy();
 };

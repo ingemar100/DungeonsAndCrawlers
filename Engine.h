@@ -17,8 +17,6 @@ private:
 	void playGame();
 	void setUp();
 	void endGame();
-	void vlucht();
-	void showInventory();
 	void neemTrap();
 };
 

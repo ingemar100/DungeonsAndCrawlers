@@ -46,7 +46,11 @@ void Kerker::init() {
 			for (int k = 0; k < laagGrootte; k++) {
 				Ruimte* r = roomGenerator->createRoom();
 				//enemies toevoegen
-				r->addEnemy(eg->createEnemy(i, i + 2));
+				int kansBevatEnemies = rand() % 2;
+				if (kansBevatEnemies == 1) {
+					r->addEnemy(eg->createEnemy(i, i + 2));
+				}
+
 				r->xCoord = k;
 				r->yCoord = j;
 				binnenVector->push_back(r);

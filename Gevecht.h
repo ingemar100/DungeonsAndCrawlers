@@ -1,13 +1,20 @@
 #pragma once
 #include <vector>
-#include "Tegenstander.h"
+#include "Enemy.h"
+#include "Ruimte.h"
+#include "Held.h"
+#include <iostream>
+#include "Dialogue.h"
 
 class Gevecht
 {
 public:
-	Gevecht();
+	Gevecht(Ruimte* r);
 	~Gevecht();
+	void start();
 private:
-	std::vector<Tegenstander> tegenstanders;
+	Ruimte* ruimte;
+	void playTurn();
+	bool fighting;
 };
 

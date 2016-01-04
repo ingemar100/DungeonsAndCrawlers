@@ -28,7 +28,7 @@ public:
 	bool hit(int enemyAanval);
 	void setLevenspunten(int _levenspunten);
 
-	void vlucht();
+	bool vlucht();
 	void addErvaring(int punten);
 	void showInventory();
 

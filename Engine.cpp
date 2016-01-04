@@ -27,12 +27,12 @@ void Engine::gameLoop() {
 
 	// begin game loop
 	while (playing) {
-
-		// if health <=0 print death message, break from game loop	
+	
+		playGame();
+		// if health <=0 print death message, break from game loop
 		if (!Held::getInstance().isAlive()) {
 			death();
 		}
-		playGame();
 		// print success message
 		//std::cout << "hallo\n";
 	}
@@ -80,8 +80,9 @@ void Engine::intro() {
 }
 
 void Engine::death() {
-	std::cout << "Jammer, je bent dood";
-	//dialoog met opnieuw beginnen of spel beeindigen
+	Dialogue eind("Jammer, je bent dood.", { "Beeindig spel" });
+	eind.activate();
+	playing = false;
 }
 
 void Engine::playGame() {

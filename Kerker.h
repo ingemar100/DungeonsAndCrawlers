@@ -19,8 +19,6 @@ private:
 	Laag* huidigeLaag = nullptr;
 	int aantalLagen = 3;
 	int laagAfmeting = 3;
-	void slaOp();
-	void laad();
 	EnemyGenerator* eg = nullptr;
 
 	friend class Engine;

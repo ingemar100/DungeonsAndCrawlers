@@ -207,7 +207,7 @@ void Held::setLevenspunten(int _levenspunten)
 }
 
 
-void Held::vlucht()
+bool Held::vlucht()
 {
 	std::map<std::string, Ruimte*> adjacentRooms = Held::getInstance().getRuimte()->getAdjacentRooms();
 	std::vector<std::string> richtingen = std::vector<std::string>();
@@ -219,9 +219,14 @@ void Held::vlucht()
 	Dialogue dialoog("Welke richting?", { richtingen });
 
 	int gekozenOptie = dialoog.activate();
+	if (gekozenOptie == 0) {
+		return false;
+	}
 
 	Ruimte* doel = adjacentRooms[richtingen[gekozenOptie - 1]];
 	Held::getInstance().moveTo(doel);
+
+	return true;
 }
 
 void Held::addErvaring(int punten)

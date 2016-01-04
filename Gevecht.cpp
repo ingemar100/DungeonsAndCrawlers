@@ -36,7 +36,11 @@ void Gevecht::playTurn()
 			opties.push_back(enemy->getName() + " (aanval: " + std::to_string(enemy->getAanval()) + ", verd.: " + std::to_string(enemy->getVerdediging()) + ", levensp.: " + std::to_string(enemy->getLevenspunten()) + ")"); 
 		}
 		Dialogue vijandKeuze("Welke vijand?", opties);
-		int vijand = vijandKeuze.activate() - 1;
+		int keuze = vijandKeuze.activate();
+		if (keuze == 0) {
+			return;
+		}
+		int vijand = keuze - 1;
 
 		Enemy* enemy = aanwezig[vijand];
 		std::cout << "\n" + Held::getInstance().getNaam() + " valt " + enemy->getName() + " aan...\n";
@@ -47,8 +51,9 @@ void Gevecht::playTurn()
 	}
 	else if (keuze == 2) {
 		//vlucht
-		Held::getInstance().vlucht();
-		fighting = false;
+		if (Held::getInstance().vlucht()) {
+			fighting = false;
+		}
 		return;
 	}
 	else if (keuze == 3) {

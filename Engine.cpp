@@ -41,7 +41,7 @@ void Engine::gameLoop() {
 }
 
 void Engine::intro() {
-	std::vector<std::string> names = {"Harrison Ford", "Kunta Kinte", "Avonturier", "Karel de Grote", "Gengis Khan", "Cristopher Columbus", "Julius Caesar", "Drakenslachter", "Jeroen", "Bart Gelens"};
+	std::vector<std::string> names = {"Harrison Ford", "Kunta Kinte", "Zinedine Zidane", "Karel de Grote", "Alexander de Grote", "Gengis Khan", "Cristopher Columbus", "Julius Caesar", "Johan de Witt", "Daenerys Targaryen", "Werner Heisenberg", "Bart Gelens"};
 	Dialogue dialoog("Wat is je naam?", { names });
 	int keuze = dialoog.activate();
 

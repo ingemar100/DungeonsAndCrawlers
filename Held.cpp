@@ -178,6 +178,16 @@ int Held::getVerdediging()
 	return verdediging;
 }
 
+int Held::getOpmerkzaamheid()
+{
+	return opmerkzaamheid;
+}
+
+int Held::getLevenspunten()
+{
+	return levenspunten;
+}
+
 bool Held::hit(int enemyAanval)
 {
 	levenspunten -= enemyAanval;
@@ -189,6 +199,11 @@ bool Held::hit(int enemyAanval)
 		std::cout << "Je tegenstander doet " << enemyAanval << " schade. Je hebt nog " << levenspunten << " levenspunten over. \n";
 	}
 	return isAlive();
+}
+
+void Held::setLevenspunten(int _levenspunten)
+{
+	levenspunten = _levenspunten;
 }
 
 

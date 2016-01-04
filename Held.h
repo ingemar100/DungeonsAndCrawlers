@@ -23,7 +23,10 @@ public:
 	void consumeer(GameObject* eten);
 	int getAanval();
 	int getVerdediging();
+	int getOpmerkzaamheid();
+	int getLevenspunten();
 	bool hit(int enemyAanval);
+	void setLevenspunten(int _levenspunten);
 
 	void vlucht();
 	void addErvaring(int punten);

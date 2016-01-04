@@ -15,6 +15,10 @@ Ruimte::~Ruimte()
 		delete _gameObject;
 		_gameObject = nullptr;
 	}
+	if (_val != nullptr) {
+		delete _val;
+		_val = nullptr;
+	}
 	for (auto e : _enemies) {
 		delete e;
 		e = nullptr;
@@ -125,6 +129,18 @@ GameObject * Ruimte::search()
 	}
 	std::cout << "\n\n";
 
+	if (_val != nullptr) {
+		int r = rand() % 100;
+		if (r < Held::getInstance().getOpmerkzaamheid()) {
+			std::cout << "Je hebt een Val ontdekt en ontmanteld.\n";
+			delete _val;
+			_val = nullptr;
+		}
+		else {
+			doVal();
+		}
+	}
+
 	return _gameObject;
 }
 
@@ -144,6 +160,31 @@ void Ruimte::destroyEnemy(Enemy* toRemove)
 		else {
 			i++;
 		}
+	}
+}
+
+void Ruimte::addVal(Val* val)
+{
+	_val = val;
+}
+
+bool Ruimte::hasVal()
+{
+	if (_val != nullptr) {
+		return true;
+	}
+	return false;
+}
+
+void Ruimte::doVal()
+{
+	if (_val != nullptr) {
+		std::cout << "Oh nee.... " << _val->naam() << " is geactiveerd. Je verlies " << _val->getStrength() << " levenspunten.\n";
+		int rv = _val->getStrength();
+		Held::getInstance().setLevenspunten(Held::getInstance().getLevenspunten() - rv);
+		delete _val;
+		_val = nullptr;
+
 	}
 }
 

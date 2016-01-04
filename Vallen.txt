@@ -1,6 +1,6 @@
-Gif
-Slaap Gas
-Beren Klauw
-Struikeldraad
-Pijl en Boog regen
-Valkooi
+Gif,50
+Slaap Gas,10
+Beren Klauw,30
+Struikeldraad,5
+Pijl en Boog regen,60
+Valkooi,10

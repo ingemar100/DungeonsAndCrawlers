@@ -50,7 +50,7 @@ std::string Ruimte::getBeschrijving(){
 
 	beschrijving.append("De kamer is " + ordelijkheid + ". \n\n");
 
-	beschrijving.append("Uitgangen:");
+	beschrijving.append("Uitgangen: ");
 	for (auto ent : adjacentRooms) {
 		beschrijving.append(ent.first + ", ");
 	}

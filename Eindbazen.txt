@@ -1,4 +1,4 @@
-King Kong,1,200,20
-Driekoppige draak,1,100,50
-Mechanische Reuzenpanda,7,100,10
-Bob van der Putten,10,100,50
+King Kong,150,200,20
+Driekoppige draak,150,100,50
+Mechanische Reuzenpanda,700,100,10
+Bob van der Putten,1000,100,50

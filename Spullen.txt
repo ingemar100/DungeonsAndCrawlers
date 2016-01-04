@@ -1,34 +1,34 @@
 Dolk,10
-Flip Knife,5
-Shaddow Daggers,5
+Flip Knife,25
+Shadow Daggers,45
 Gut Knife,8
 Karambit,20
 Huntsman Knife,10
-Pijl en Boog,15
-Katapult,11
-Nunchaku,9
+Pijl en Boog,60
+Katapult,15
+Nunchaku,40
 Samurai Zwaard,30
-Buskruid,16
+Buskruit,16
 Vuurwerk,10
 Pepperspray,50
 __________
-Kip,5
-Eend, 6
-Appel,3
-Brood,10
-Water,10
+Kip,15
+Eend,20
+Appel,10
+Brood,20
+Water,25
 Wasabi,-10
 Habanero,-30
-Healt Potion,20
-Mana Poition,20
-Regeneration Potion,100
-Strength Potion,50
-Opmerkzaamheid Poition,50
-Verdedigings Potion,50
+Health Potion,40
+Fruitsalade,20
+Gerookt zwijn met kaviaar,100
+Wijn,50
+Taco,50
+Chocola,50
 __________
-Bontjas,5
-Leather armor,10
-MalienKolder,30
+Bontjas,10
+Leather armor,20
+Malienkolder,30
 Mage Robe,50
 Harnas,60
 Hakama,70

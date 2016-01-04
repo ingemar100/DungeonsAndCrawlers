@@ -38,6 +38,28 @@ EnemyGenerator::EnemyGenerator()
 			}
 		}
 	}
+
+
+	const std::string file("Eindbazen.txt");
+	std::ifstream boss_file(file); // Deze constructie opent de file voor het lezen;
+	std::string line1;
+	while (getline(boss_file, line1)) {
+		std::string buffer;
+		std::stringstream ss(line1);
+
+		std::vector<std::string>tokens;
+
+		while (std::getline(ss, buffer, ',')) {
+			tokens.push_back(buffer);
+		}
+		if (tokens.size() > 1) {
+			std::vector<int> properties;
+			for (int i = 1; i < tokens.size(); i++) {
+				properties.push_back(std::stoi(tokens[i]));
+			}
+			eindbazen[tokens[0]] = properties;
+		}
+	}
 }
 
 
@@ -75,4 +97,26 @@ void EnemyGenerator::addEnemies(int minLevel, int maxLevel, Ruimte* room) {
 
 		room->addEnemy(enemy);
 	}
-}									
+}
+
+void EnemyGenerator::addEindbaas(Ruimte * room)
+{
+	int randIndex = rand() % eindbazen.size();
+	Enemy* baas = new Enemy();
+
+	int counter = 0;
+	for each(auto kv in eindbazen) {
+		if (counter == randIndex) {
+			baas->setName(kv.first);
+			auto props = kv.second;
+			baas->setLevenspunten(props[0]);
+			baas->setAanval(props[1]);
+			baas->setVerdediging(props[2]);
+		}
+		counter++;
+	}
+
+	room->addEnemy(baas);
+	room->eindbaas = true;
+}
+

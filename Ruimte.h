@@ -73,6 +73,7 @@ public:
 		return _enemies;
 	}
 	bool hasEnemy() { return _enemies.size() > 0; }
+	bool hasEindbaas() { return eindbaas; }
 
 	void addVal(Val* val);
 	bool hasVal();
@@ -114,5 +115,6 @@ private:
 	friend class Kerker;
 	friend class Held;
 	friend class Engine;
+	friend class EnemyGenerator;
 };
 

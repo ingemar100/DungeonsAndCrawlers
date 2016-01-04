@@ -109,9 +109,10 @@ void Kerker::init() {
 		randX = rand() % laagGrootte;
 		randY = rand() % laagGrootte;
 		Ruimte* eind = ruimtes[randX][0][randY];
-		if (i == lagen.size()) {
+		if (i == lagen.size() - 1) {
 			//eindvijand
 			eind->eindbaas = true;
+			eg->addEindbaas(eind);
 		}
 	}
 

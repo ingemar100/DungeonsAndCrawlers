@@ -6,6 +6,7 @@
 #include "Enemy.h"
 #include <map>
 
+class Val;
 class GameObject;
 class Ruimte
 {
@@ -73,6 +74,10 @@ public:
 	}
 	bool hasEnemy() { return _enemies.size() > 0; }
 
+	void addVal(Val* val);
+	bool hasVal();
+	void doVal();
+
 	std::map<std::string, Ruimte*>& getAdjacentRooms() {
 		return adjacentRooms;
 	};
@@ -96,7 +101,6 @@ private:
 	std::string opbergruimte = "";
 	std::string versiering = "";
 	std::string temperatuur = "";
-	Val val;
 	std::map<std::string, Ruimte*> adjacentRooms;
 	bool visited = false;
 	bool trapOmhoog = false;
@@ -105,6 +109,7 @@ private:
 
 	GameObject* _gameObject = nullptr;
 	std::vector<Enemy*> _enemies;
+	Val* _val = nullptr;
 
 	friend class Kerker;
 	friend class Held;

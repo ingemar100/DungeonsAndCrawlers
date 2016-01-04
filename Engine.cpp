@@ -85,6 +85,12 @@ void Engine::death() {
 	playing = false;
 }
 
+void Engine::win() {
+	Dialogue win("Gefeliciteerd, je hebt de eindbaas verslagen. Je hebt het spel gewonnen.", { "Beeindig spel" });
+	win.activate();
+	playing = false;
+}
+
 void Engine::playGame() {
 	Dialogue dialoog( "Kies een optie: ", { "Vecht", "Verplaats", "Zoek", "Rust uit", "Bekijk spullen", "Toon kaart", "Status" });
 
@@ -100,6 +106,10 @@ void Engine::playGame() {
 			g->start();
 
 			delete g;
+
+			if (Held::getInstance().getRuimte()->hasEindbaas() && Held::getInstance().isAlive() && !Held::getInstance().getRuimte()->hasEnemy()) {
+				win();
+			}
 		}
 		else {
 			std::cout << "\nEr zijn geen vijanden aanwezig. \n";

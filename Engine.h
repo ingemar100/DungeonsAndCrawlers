@@ -17,6 +17,7 @@ private:
 	void playGame();
 	void setUp();
 	void endGame();
+	void win();
 	void neemTrap();
 };
 

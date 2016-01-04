@@ -16,7 +16,6 @@ Enemy::~Enemy()
 
 bool Enemy::hit(int heldAanval)
 {
-	this->verdediging;
 	int r = rand() % 100;
 	if (r < verdediging) {
 		//ontweken

@@ -190,12 +190,12 @@ int Held::getLevenspunten()
 
 bool Held::hit(int enemyAanval)
 {
-	levenspunten -= enemyAanval;
 	int r = rand() % 100;
 	if (r < getVerdediging()) {
 		std::cout << "Je blokkeert de aanval!\n";
 	}
 	else {		
+		levenspunten -= enemyAanval;
 		std::cout << "Je tegenstander doet " << enemyAanval << " schade. Je hebt nog " << levenspunten << " levenspunten over. \n";
 	}
 	return isAlive();

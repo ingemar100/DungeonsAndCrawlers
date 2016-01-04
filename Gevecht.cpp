@@ -16,15 +16,10 @@ void Gevecht::start() {
 	fighting = true;
 	if (ruimte->hasEindbaas()) {
 		//dialoog
-		std::cout << "Je ziet een kapot enge eindbaas enzo";
+		std::cout << "\nWaarschuwing: Deze ruimte bevat een sterke eindbaas. Je kunt nog terug om je voor te bereiden. Als je de eindbaas verslaat heb je het spel gewonnen.\n";
 	}
 	while (fighting && Held::getInstance().isAlive()) {
 		playTurn();
-	}
-
-	if (ruimte->hasEindbaas() && Held::getInstance().isAlive() && !ruimte->hasEnemy()) {
-		//dialoog en spel gewonnen
-		std::cout << "Gefeliciteerd, je hebt de eindbaas verslagen. Je hebt het spel gewonnen.";
 	}
 }
 
